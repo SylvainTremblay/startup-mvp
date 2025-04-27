@@ -19,8 +19,8 @@ repositories {
 
 dependencies {
 	implementation 'org.springframework.boot:spring-boot-starter-web'
-	implementation 'com.google.cloud:google-cloud-aiplatform:3.35.0'
 	implementation group: 'org.springframework.boot', name: 'spring-boot-starter-freemarker', version: '3.3.1'
+	implementation 'org.springframework.boot:spring-boot-starter-data-jpa'
 	implementation group: 'org.liquibase', name: 'liquibase-core', version: '4.28.0'
 	implementation 'org.apache.commons:commons-lang3:3.12.0'
 	implementation group: 'org.projectlombok', name: 'lombok', version: '1.18.32'
@@ -29,7 +29,7 @@ dependencies {
 	runtimeOnly 'org.postgresql:postgresql'
 	testImplementation 'org.springframework.boot:spring-boot-starter-test'
 	testImplementation 'org.junit.platform:junit-platform-launcher'
-
+	testImplementation 'org.hsqldb:hsqldb:2.7.2'
 }
 
 tasks.named('test') {

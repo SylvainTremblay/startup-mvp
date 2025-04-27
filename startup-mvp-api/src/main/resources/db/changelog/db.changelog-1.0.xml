@@ -3,189 +3,246 @@
   
   <property name="uuid_function" value="gen_random_uuid()" dbms="postgresql"/>
   
-  <changeSet  author="STremblay"  id="changelog-1.0">  
-    <!-- Status Ref Table -->
-    <createTable  tableName="STATUS_REF">
-      <column  name="STATUS_CD"  type="CHAR(1)" />
-        <constraints nullable="false"  primaryKey="true" primaryKeyName="PK_STATUS_CD" unique="true"/>
-      </column>
-      <column  name="STATUS_NM"  type="VARCHAR(20)" >
-        <constraints nullable="false"  primaryKey="false"  unique="true"/>
-      </column>
-    </createTable>
-    <!-- User Ref Table -->
-    <createTable  tableName="USER_TYPE_REF">
-      <column  name="USER_TYPE_CD"  type="CHAR(1)" />
-        <constraints nullable="false"  primaryKey="true" primaryKeyName="PK_USER_TYPE_REF_CD" unique="true"/>
-      </column>
-      <column  name="USER_TYPE_NM"  type="VARCHAR(20)" >
-        <constraints nullable="false"  primaryKey="false"  unique="true"/>
-      </column>
-    </createTable>
-    <!-- State Province Table -->
-    <createTable  tableName="STATE_PROV">
-      <column  name="STATE_PROV_CD"  type="VARCHAR(2)" />
-        <constraints nullable="false"  primaryKey="true" primaryKeyName="PK_STATE_PROV_CD" unique="true"/>
-      </column>
-      <column  name="STATE_PROV_NM"  type="VARCHAR(50)" >
-        <constraints nullable="false"  primaryKey="false"  unique="true"/>
-      </column>
-    </createTable>
+  <changeSet  author="STremblay"  id="changelog-1.0">
+
     <!-- Country Table -->
     <createTable  tableName="COUNTRY">
-      <column  name="COUNTRY_CD"  type="VARCHAR(2)" />
-        <constraints nullable="false"  primaryKey="true" primaryKeyName="PK_COUNTRY_CD" unique="true"/>
+      <column  name="COUNTRY_CD"  type="VARCHAR(2)">
+        <constraints nullable="false"  primaryKey="true" primaryKeyName="PK_COUNTRY_CD"/>
       </column>
       <column  name="COUNTRY_NM"  type="VARCHAR(50)" >
         <constraints nullable="false"  primaryKey="false"  unique="true"/>
       </column>
     </createTable>
-    <!-- Customer Table -->
-    <createTable  tableName="CUSTOMER">
-      <column  name="CUST_ID"  type="UUID" valueComputed="${uuid_function}">
-        <constraints nullable="false"  primaryKey="true" primaryKeyName="PK_CUSTOMER_ID" unique="true"/>
-      </column>
-      <column  name="CUST_NM"  type="VARCHAR(100)" >
-        <constraints nullable="false"  primaryKey="false"  unique="true"/>
-      </column>
-      <column  name="ADDRESS1"  type="VARCHAR(50)" />
-      <column  name="ADDRESS2"  type="VARCHAR(50)" />
-      <column  name="CITY"  type="VARCHAR(50)" />
-      <column  name="STATE_PROV_CD"  type="VARCHAR(2)">
-        <constraints nullable="false" referencedTableName="CUSTOMER" referencedColumnNames="STATE_PROV_CD" foreignKeyName="FK_CUST_STAT_PROV_CD"/>
-      </column>
-      <column  name="POST_ZIP_CD"  type="VARCHAR(8)" />
-      <column  name="COUNTRY_CD"  type="VARCHAR(2)">
-        <constraints nullable="false" referencedTableName="COUNTRY" referencedColumnNames="COUNTRY_CD" foreignKeyName="FK_CUST_COUNTRY_CD"/>
-      </column>
-      <column  name="WEBSITE"  type="VARCHAR(100)" />
-      <column  name="STATUS_CD"  type="CHAR(1)">
-        <constraints nullable="false" referencedTableName="STATUS_REF" referencedColumnNames="STATUS_CD" foreignKeyName="FK_CUST_STATUS_REF_CD"/>
-      </column>
-      <column  name="AUDIT_TS"  type="TIMESTAMP" >
-        <constraints nullable="false"  primaryKey="false"  unique="false"/>
-      </column>
-    </createTable>
-    <!-- User Table -->
-    <createTable  tableName="USER">
-      <column  name="USER_ID"  type="UUID" valueComputed="${uuid_function}">
-        <constraints nullable="false"  primaryKey="true" primaryKeyName="PK_USER_ID" unique="true"/>
-      </column>
-      <column  name="EMAIL_ADDRESS"  type="VARCHAR(100)" >
-        <constraints nullable="false"  primaryKey="false"  unique="true"/>
-      </column>
-      <column  name="FIRST_NM"  type="VARCHAR(30)" />
-      <column  name="LAST_NM"  type="VARCHAR(30)" />
-      <column  name="USER_TYPE_CD"  type="CHAR(1)">
-        <constraints nullable="false" referencedTableName="USER_TYPE_REF" referencedColumnNames="USER_TYPE_CD" foreignKeyName="FK_USER_TYPE_REF_CD"/>
-      </column>
-      <column  name="STATUS_CD"  type="CHAR(1)">
-        <constraints nullable="false" referencedTableName="STATUS_REF" referencedColumnNames="STATUS_CD" foreignKeyName="FK_USER_STATUS_REF_CD"/>
-      </column>
-      <column  name="AUDIT_TS"  type="TIMESTAMP" >
-        <constraints nullable="false"  primaryKey="false"  unique="false"/>
-      </column>
-    </createTable>
-    <!-- Platform Table -->
-    <createTable  tableName="PLATFORM">
-      <column  name="PLATFORM_TYPE_CD"  type="CHAR(1)">
-        <constraints nullable="false"  primaryKey="true" primaryKeyName="PK_PLATFORM_CD" unique="true"/>
-      </column>
-      <column  name="PLATFORM_NM"  type="VARCHAR(20)" >
-        <constraints nullable="false"  primaryKey="false"  unique="true"/>
-      </column>
-    </createTable>
-    <!-- Widget Type Table -->
-    <createTable  tableName="WIDGET_TYPE">
-      <column  name="WIDGET_TYPE_CD"  type="CHAR(2)">
-        <constraints nullable="false"  primaryKey="true" primaryKeyName="PK_WIDGET_TYPE" unique="true"/>
-      </column>
-      <column  name="PLATFORM_TYPE_CD"  type="CHAR(1)">
-        <constraints nullable="false" referencedTableName="PLATFORM" referencedColumnNames="PLATFORM_TYPE_CD" foreignKeyName="FK_PLATFORM_TYPE_REF_CD"/>
-      </column>
-      <column  name="WIDGET_NM"  type="VARCHAR(20)" >
-        <constraints nullable="false"  primaryKey="false"  unique="true"/>
-      </column>
-    </createTable>
-    <!-- Widget Type Action Table -->
-    <createTable  tableName="WIDGET_TYPE_ACTION">
-      <column  name="WIDGET_TYPE_ACTION_CD"  type="CHAR(2)">
-        <constraints nullable="false"  primaryKey="true" primaryKeyName="PK_WIDGET_TYPE_ACTION" unique="true"/>
-      </column>
-      <column  name="WIDGET_TYPE_CD"  type="CHAR(2)">
-        <constraints nullable="false" referencedTableName="WIDGET_TYPE" referencedColumnNames="WIDGET_TYPE_CD" foreignKeyName="FK_WIDGET_TYPE_REF_CD"/>
-      </column>
-      <column  name="ACTION_NM"  type="VARCHAR(20)" >
-        <constraints nullable="false"  primaryKey="false"  unique="true"/>
-      </column>
-    </createTable>
-    <!-- Attribute Type -->
-    <createTable  tableName="ATTRIBUTE_TYPE">
-      <column  name="ATTRIBUTE_TYPE_ID"  type="BIGINT">
-        <constraints nullable="false"  primaryKey="true" primaryKeyName="PK_ATTRIBUTE_TYPE_ID" unique="true"/>
-      </column>
-      <column  name="ATTRIBUTE_TYPE_NM"  type="VARCHAR(20)" >
-        <constraints nullable="false"  primaryKey="false"  unique="false"/>
-      </column>
-      <column  name="ARRAY_IND"  type="CHAR(1)" >
-        <constraints nullable="false"  primaryKey="false"  unique="false"/>
-      </column>
-    </createTable>
-    <!-- Widget Type Attribute Table -->
-    <createTable  tableName="WIDGET_TYPE_ATTRIBUTE">
-      <column  name="WIDGET_TYPE_ATTRIBUTE_ID"  type="BIGINT">
-        <constraints nullable="false"  primaryKey="true" primaryKeyName="PK_WIDGET_TYPE_ATTRIBUTE" unique="true"/>
-      </column>
-      <column  name="WIDGET_TYPE_CD"  type="CHAR(2)">
-        <constraints nullable="false" referencedTableName="WIDGET_TYPE" referencedColumnNames="WIDGET_TYPE_CD" foreignKeyName="FK_WIDGET_TYPE_REF_CD"/>
-      </column>
-      <column  name="ATTRIBUTE_TYPE_ID"  type="INT">
-        <constraints nullable="false" referencedTableName="ATTRIBUTE_TYPE" referencedColumnNames="ATTRIBUTE_TYPE_ID" foreignKeyName="FK_WIDGET_TYPE_ATT_TYP_ID"/>
-      </column>
-      <column  name="ATTRIBUTE_NM"  type="VARCHAR(20)" >
-        <constraints nullable="false"  primaryKey="false"  unique="false"/>
-      </column>
-      <column  name="REQUIRED_IND"  type="CHAR(1)" >
-        <constraints nullable="false"  primaryKey="false"  unique="false"/>
-      </column>
-    </createTable>
-    <!-- Widget Type Attribute Generator -->
-    <addAutoIncrement tableName="WIDGET_TYPE_ATTRIBUTE" columnName="WIDGET_TYPE_ATTRIBUTE_ID" columnDataType="BIGINT" defaultOnNull="false" generationType="ALWAYS" incrementBy="1" startWith="100"/>
 
-
-    <!-- This creates the Audit Trail Table. This table is used to track who is changing what, etc -->
-    <createTable  tableName="AUDIT_TRAIL">  
-      <column  name="AUDIT_TRAIL_ID"  type="BIGINT">  
-        <constraints nullable="false"  primaryKey="true"  primaryKeyName="PK_AUDIT_TRAIL_ID" unique="true"/>  
-      </column>  
-      <column  name="USER_ID"  type="BIGINT" >
-        <constraints nullable="false"  primaryKey="false"  unique="false"/>  
-      </column>  
-      <column  name="AUDIT_TYPE"  type="VARCHAR(1)" >  
-        <constraints nullable="false"  primaryKey="false"  unique="false"/>  
-      </column>  
-      <column  name="TARGET_NM"  type="VARCHAR(30)" >
-        <constraints nullable="false"  primaryKey="false"  unique="false"/>
+    <createTable tableName="platform">
+      <column name="platform_code" type="VARCHAR(8)">
+        <constraints nullable="false" primaryKey="true" primaryKeyName="pk_platform"/>
       </column>
-      <column  name="TARGET_ID"  type="BIGINT" >
-        <constraints nullable="false"  primaryKey="false"  unique="false"/>
+      <column name="platform_version" type="VARCHAR(20)">
+        <constraints nullable="false"/>
       </column>
-      <column  name="AUDIT_TS"  type="TIMESTAMP" >
-        <constraints nullable="false"  primaryKey="false"  unique="false"/>
+      <column name="version_date" type="DATE">
+        <constraints nullable="false"/>
       </column>
-    </createTable>  
-    <!-- This creates the generator for the AUDIT_TRAIL primary key -->
-    <addAutoIncrement tableName="AUDIT_TRAIL" columnName="AUDIT_TRAIL_ID" columnDataType="BIGINT" defaultOnNull="false" generationType="ALWAYS" incrementBy="1" startWith="100"/>
-    <!-- Add indexes -->
-    <createIndex indexName="IDX_AUD_TRL_USER_ID" tableName="AUDIT_TRAIL">
-        <column  name="USER_ID"/>
-    </createIndex>  
-    <createIndex indexName="IDX_AUD_TARGET_ID" tableName="AUDIT_TRAIL">
-        <column  name="TARGET_NM"/>
-        <column  name="TARGET_ID"/>
-        <column  name="USER_ID"/>
-    </createIndex>
+      <column name="platform_name" type="VARCHAR(30)">
+        <constraints nullable="false"/>
+      </column>
+    </createTable>
 
+    <createTable tableName="attribute_type">
+      <column name="attribute_type_id" type="BIGINT">
+        <constraints nullable="false" primaryKey="true" primaryKeyName="pk_attribute_type"/>
+      </column>
+      <column name="name" type="VARCHAR(30)">
+        <constraints nullable="false"/>
+      </column>
+    </createTable>
+    <addAutoIncrement tableName="attribute_type" columnName="attribute_type_id" columnDataType="BIGINT" startWith="1" incrementBy="1"/>
 
-  </changeSet>  
-</databaseChangeLog> 
+    <createTable tableName="widget_type">
+      <column name="widget_type_id" type="BIGINT">
+        <constraints nullable="false" primaryKey="true" primaryKeyName="pk_widget_type"/>
+      </column>
+      <column name="name" type="VARCHAR(30)">
+        <constraints nullable="false"/>
+      </column>
+      <column name="platform_code" type="VARCHAR(8)">
+        <constraints nullable="false" referencedTableName="platform" referencedColumnNames="platform_code" foreignKeyName="fk_widget_type_platform"/>
+      </column>
+      <column name="since_platform_version" type="VARCHAR(20)"/>
+      <column name="until_platform_version" type="VARCHAR(20)"/>
+    </createTable>
+    <addAutoIncrement tableName="widget_type" columnName="widget_type_id" columnDataType="BIGINT" startWith="1" incrementBy="1"/>
+
+    <createTable tableName="widget_type_attribute">
+      <column name="widget_type_attribute_id" type="BIGINT">
+        <constraints nullable="false" primaryKey="true" primaryKeyName="pk_widget_type_attribute"/>
+      </column>
+      <column name="attribute_name" type="VARCHAR(20)">
+        <constraints nullable="false"/>
+      </column>
+      <column name="attribute_type_id" type="BIGINT">
+        <constraints nullable="false" referencedTableName="attribute_type" referencedColumnNames="attribute_type_id" foreignKeyName="fk_attribute_type_attribute_type_id"/>
+      </column>
+      <column name="since_platform_version" type="VARCHAR(20)"/>
+      <column name="until_platform_version" type="VARCHAR(20)"/>
+      <column name="required" type="BOOLEAN">
+        <constraints nullable="false"/>
+      </column>
+      <column name="attribute_name_required" type="BOOLEAN">
+        <constraints nullable="false"/>
+      </column>
+      <column name="widget_type_id" type="BIGINT">
+        <constraints nullable="false" referencedTableName="widget_type" referencedColumnNames="widget_type_id" foreignKeyName="fk_widget_type_attribute_widget_type"/>
+      </column>
+    </createTable>
+    <addAutoIncrement tableName="widget_type_attribute" columnName="widget_type_attribute_id" columnDataType="BIGINT" startWith="1" incrementBy="1"/>
+
+    <createTable tableName="organization_address">
+      <column name="organization_address_id" type="BIGINT">
+        <constraints nullable="false" primaryKey="true" primaryKeyName="pk_organization_address"/>
+      </column>
+      <column name="address_line1" type="VARCHAR(255)">
+        <constraints nullable="false"/>
+      </column>
+      <column name="address_line2" type="VARCHAR(255)"/>
+      <column name="city" type="VARCHAR(100)">
+        <constraints nullable="true"/>
+      </column>
+      <column name="state" type="VARCHAR(50)"/>
+      <column name="country_code" type="VARCHAR(2)">
+        <constraints nullable="false"/>
+      </column>
+      <column name="postal_code" type="VARCHAR(20)">
+        <constraints nullable="false"/>
+      </column>
+    </createTable>
+    <addAutoIncrement tableName="organization_address" columnName="organization_address_id" columnDataType="BIGINT" startWith="1" incrementBy="1"/>
+
+    <createTable tableName="organization">
+      <column name="organization_id" type="UUID">
+        <constraints nullable="false" primaryKey="true" primaryKeyName="pk_organization"/>
+      </column>
+      <column name="organization_name" type="VARCHAR(255)">
+        <constraints nullable="false"/>
+      </column>
+      <column name="organization_address_id" type="BIGINT">
+        <constraints nullable="false" referencedTableName="organization_address" referencedColumnNames="organization_address_id" foreignKeyName="fk_organization_address"/>
+      </column>
+      <column name="billing_address_id" type="BIGINT">
+        <constraints nullable="false" referencedTableName="organization_address" referencedColumnNames="organization_address_id" foreignKeyName="fk_billing_address"/>
+      </column>
+      <column name="website" type="VARCHAR(255)">
+        <constraints nullable="false" unique="true"/>
+      </column>
+    </createTable>
+
+    <createTable tableName="user">
+      <column name="user_id" type="UUID">
+        <constraints nullable="false" primaryKey="true" primaryKeyName="pk_user"/>
+      </column>
+      <column name="first_name" type="VARCHAR(30)">
+        <constraints nullable="false"/>
+      </column>
+      <column name="last_name" type="VARCHAR(30)">
+        <constraints nullable="false"/>
+      </column>
+      <column name="email" type="VARCHAR(100)">
+        <constraints nullable="false" unique="true"/>
+      </column>
+      <column name="phone_number" type="VARCHAR(20)"/>
+      <column name="organization_id" type="UUID">
+        <constraints nullable="false" referencedTableName="organization" referencedColumnNames="organization_id" foreignKeyName="fk_user_organization"/>
+      </column>
+    </createTable>
+
+    <createTable tableName="application">
+      <column name="application_id" type="BIGINT">
+        <constraints nullable="false" primaryKey="true" primaryKeyName="pk_application"/>
+      </column>
+      <column name="application_name" type="VARCHAR(30)">
+        <constraints nullable="false"/>
+      </column>
+      <column name="description" type="VARCHAR(255)"/>
+      <column name="organization_id" type="UUID">
+        <constraints nullable="false" referencedTableName="organization" referencedColumnNames="organization_id" foreignKeyName="fk_application_organization"/>
+      </column>
+      <column name="platform_code" type="VARCHAR(8)">
+        <constraints nullable="false" referencedTableName="platform" referencedColumnNames="platform_code" foreignKeyName="fk_application_platform"/>
+      </column>
+    </createTable>
+    <addAutoIncrement tableName="application" columnName="application_id" columnDataType="BIGINT" startWith="1" incrementBy="1"/>
+
+    <createTable tableName="widget">
+      <column name="widget_id" type="BIGINT">
+        <constraints nullable="false" primaryKey="true" primaryKeyName="pk_widget"/>
+      </column>
+      <column name="widget_type_id" type="BIGINT">
+        <constraints nullable="false" referencedTableName="widget_type" referencedColumnNames="widget_type_id" foreignKeyName="fk_widget_widget_type"/>
+      </column>
+      <column name="constant" type="BOOLEAN">
+        <constraints nullable="false"/>
+      </column>
+      <column name="timestamp" type="TIMESTAMP">
+        <constraints nullable="false"/>
+      </column>
+    </createTable>
+    <addAutoIncrement tableName="widget" columnName="widget_id" columnDataType="BIGINT" startWith="1" incrementBy="1"/>
+
+    <createTable tableName="widget_attribute_value">
+      <column name="widget_attribute_value_id" type="BIGINT">
+        <constraints nullable="false" primaryKey="true" primaryKeyName="pk_widget_attribute_value"/>
+      </column>
+      <column name="widget_id" type="BIGINT">
+        <constraints nullable="false" referencedTableName="widget" referencedColumnNames="widget_id" foreignKeyName="fk_widget_widget_id"/>
+      </column>
+      <column name="widget_type_attribute_id" type="BIGINT">
+        <constraints nullable="false" referencedTableName="widget_type_attribute" referencedColumnNames="widget_type_attribute_id" foreignKeyName="fk_widget_type_attribute_id"/>
+      </column>
+      <column name="attribute_value" type="VARCHAR(255)">
+        <constraints nullable="false"/>
+      </column>
+    </createTable>
+    <addAutoIncrement tableName="widget_attribute_value" columnName="widget_attribute_value_id" columnDataType="BIGINT" startWith="1" incrementBy="1"/>
+
+    <createTable tableName="view">
+      <column name="view_id" type="BIGINT">
+        <constraints nullable="false" primaryKey="true" primaryKeyName="pk_view"/>
+      </column>
+      <column name="name" type="VARCHAR(30)">
+        <constraints nullable="false"/>
+      </column>
+      <column name="stateless" type="BOOLEAN">
+        <constraints nullable="false"/>
+      </column>
+      <column name="main_view" type="BOOLEAN">
+        <constraints nullable="false"/>
+      </column>
+      <column name="main_widget_id" type="BIGINT">
+        <constraints nullable="true" referencedTableName="widget" referencedColumnNames="widget_id" foreignKeyName="fk_view_main_widget"/>
+      </column>
+    </createTable>
+    <addAutoIncrement tableName="view" columnName="view_id" columnDataType="BIGINT" startWith="1" incrementBy="1"/>
+
+    <createTable tableName="view_model">
+      <column name="view_model_id" type="BIGINT">
+        <constraints nullable="false" primaryKey="true" primaryKeyName="pk_view_model"/>
+      </column>
+      <column name="view_id" type="BIGINT">
+        <constraints nullable="true" referencedTableName="view" referencedColumnNames="view_id" foreignKeyName="fk_view_view_id"/>
+      </column>
+    </createTable>
+    <addAutoIncrement tableName="view_model" columnName="view_model_id" columnDataType="BIGINT" startWith="1" incrementBy="1"/>
+
+    <createTable tableName="view_model_attribute">
+      <column name="view_model_attribute_id" type="BIGINT">
+        <constraints nullable="false" primaryKey="true" primaryKeyName="pk_view_model_attribute"/>
+      </column>
+      <column name="view_model_id" type="BIGINT">
+        <constraints nullable="true" referencedTableName="view_model" referencedColumnNames="view_model_id" foreignKeyName="fk_view_model_view_model_id"/>
+      </column>
+      <column name="attribute_name" type="VARCHAR(20)">
+        <constraints nullable="false"/>
+      </column>
+      <column name="attribute_type_id" type="BIGINT">
+        <constraints nullable="false" referencedTableName="attribute_type" referencedColumnNames="attribute_type_id" foreignKeyName="fk_widget_type_attribute_type"/>
+      </column>
+    </createTable>
+    <addAutoIncrement tableName="view_model" columnName="view_model_id" columnDataType="BIGINT" startWith="1" incrementBy="1"/>
+
+    <createTable tableName="view_model_attribute_value">
+      <column name="view_model_attribute_value_id" type="BIGINT">
+        <constraints nullable="false" primaryKey="true" primaryKeyName="pk_view_model_attribute_value_id"/>
+      </column>
+      <column name="view_model_attribute_id" type="BIGINT">
+        <constraints nullable="false" referencedTableName="view_model_attribute" referencedColumnNames="view_model_attribute_id" foreignKeyName="fk_view_model_attribute_id"/>
+      </column>
+      <column name="attribute_value" type="VARCHAR(255)">
+        <constraints nullable="false"/>
+      </column>
+    </createTable>
+    <addAutoIncrement tableName="widget_attribute_value" columnName="widget_attribute_value_id" columnDataType="BIGINT" startWith="1" incrementBy="1"/>
+
+  </changeSet>
+</databaseChangeLog>

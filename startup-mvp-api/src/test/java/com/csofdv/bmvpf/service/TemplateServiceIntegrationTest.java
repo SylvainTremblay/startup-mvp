@@ -13,13 +13,11 @@ import freemarker.template.Configuration;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.test.context.ActiveProfiles;
 
 @SpringBootTest
+@ActiveProfiles("test")
 public class TemplateServiceIntegrationTest {
-
-    static {
-        System.setProperty("VERTEXAI_PROJECT_ID", "foo");
-    }
 
     @Autowired
     private Configuration freemarketConfiguration;
@@ -41,7 +39,7 @@ public class TemplateServiceIntegrationTest {
 
     private static WidgetTypeAttributeDto createWidgetTypeAttributeDto(String name, AttributeTypeDto attributeTypeDto) {
         WidgetTypeAttributeDto widgetTypeAttributeDto = new WidgetTypeAttributeDto();
-        widgetTypeAttributeDto.setName(name);
+        widgetTypeAttributeDto.setAttributeName(name);
         widgetTypeAttributeDto.setAttributeType(attributeTypeDto);
         return widgetTypeAttributeDto;
     }

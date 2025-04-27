@@ -11,16 +11,14 @@ import org.junit.jupiter.api.Test;
 import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.test.context.ActiveProfiles;
 
 import java.io.IOException;
 import java.io.Writer;
 
 @SpringBootTest
+@ActiveProfiles("test")
 public class TemplateServiceTest {
-
-    static {
-        System.setProperty("VERTEXAI_PROJECT_ID", "foo");
-    }
 
     @Mock
     private Configuration freemarketConfiguration;

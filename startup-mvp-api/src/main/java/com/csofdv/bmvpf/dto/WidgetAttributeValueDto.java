@@ -4,20 +4,16 @@ import lombok.Getter;
 import lombok.Setter;
 import lombok.ToString;
 
-import java.time.LocalDateTime;
-
 @Getter
 @Setter
 @ToString
-public class AttributeTypeValueDto {
+public class WidgetAttributeValueDto {
 
-    private long attributeTypeValueId;
+    private long widgetAttributeValueId;
 
     private AttributeTypeDto attributeType;
 
     private WidgetTypeDto widgetType;
 
-    private String value;
-
-    private LocalDateTime timestamp;
+    private String attributeValue;
 }

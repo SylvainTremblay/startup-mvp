@@ -11,13 +11,12 @@ import com.csofdv.bmvpf.exception.GenerationServiceException;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.test.context.ActiveProfiles;
 
-import java.io.IOException;
 import java.util.UUID;
 
-import static org.junit.jupiter.api.Assertions.*;
-
 @SpringBootTest
+@ActiveProfiles("test")
 class FlutterGenerationServiceTest {
 
     @Autowired
@@ -36,7 +35,7 @@ class FlutterGenerationServiceTest {
         AttributeTypeDto attributeTypeDto = new AttributeTypeDto();
         attributeTypeDto.setName("String");
         WidgetTypeAttributeDto widgetTypeAttributeDto = new WidgetTypeAttributeDto();
-        widgetTypeAttributeDto.setName("data");
+        widgetTypeAttributeDto.setAttributeName("data");
         widgetTypeAttributeDto.setAttributeType(attributeTypeDto);
         WidgetTypeDto textWidgetTypeDto = new WidgetTypeDto("Text");
         textWidgetTypeDto.addAttributeType(widgetTypeAttributeDto);

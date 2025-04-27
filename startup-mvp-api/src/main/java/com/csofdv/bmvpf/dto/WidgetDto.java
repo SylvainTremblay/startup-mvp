@@ -19,8 +19,6 @@ public class WidgetDto {
 
     private Boolean constant = Boolean.FALSE;
 
-    private LocalDateTime timestamp;
-
     private Map<String, Object> attributes = new HashMap<>();
 
     private Map<String, String> actions = new HashMap<>();

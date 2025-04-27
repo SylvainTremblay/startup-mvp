@@ -13,9 +13,12 @@ public class WidgetTypeAttributeDto {
 
     private long widgetTypeAttributeId;
 
-    private String name;
+    private String attributeName;
 
     private AttributeTypeDto attributeType;
+
+    private String sincePlatformVersion;
+    private String untilPlatformVersion;
 
     private LocalDateTime timestamp;
 

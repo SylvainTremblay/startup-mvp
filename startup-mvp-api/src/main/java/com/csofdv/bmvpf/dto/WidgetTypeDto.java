@@ -20,6 +20,9 @@ public class WidgetTypeDto {
 
     private PlatformDto platform;
 
+    private String sincePlatformVersion;
+    private String untilPlatformVersion;
+
     private Map<String, WidgetTypeActionDto> actions = new HashMap<>();
 
     private Map<String, WidgetTypeAttributeDto> attributeTypes = new HashMap<>();
@@ -29,7 +32,7 @@ public class WidgetTypeDto {
     }
 
     public void addAttributeType(WidgetTypeAttributeDto attributeType) {
-        attributeTypes.put(attributeType.getName(), attributeType);
+        attributeTypes.put(attributeType.getAttributeName(), attributeType);
     }
 
     public void addAction(WidgetTypeActionDto action) {

@@ -10,7 +10,7 @@ import java.util.Map;
 @Getter
 @Setter
 @ToString
-public class ModelDto {
+public class ViewModelDto {
 
     private Map<String, AttributeTypeDto> attributeTypes = new HashMap<>();
 

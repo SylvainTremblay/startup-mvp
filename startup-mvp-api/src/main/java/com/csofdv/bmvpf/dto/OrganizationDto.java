@@ -14,10 +14,7 @@ public class OrganizationDto {
 
     private String organizationId;
     private String organizationName;
-    private String addressLine1;
-    private String addressLine2;
-    private String city;
-    private String stateProvince;
-    private String postalCode;
-    private String countryCode;
+    private OrganizationAddressDto organizationAddressDto;
+    private OrganizationAddressDto billingAddressDto;
+    private String website;
 }
