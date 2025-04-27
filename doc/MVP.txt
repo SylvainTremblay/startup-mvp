@@ -1,0 +1,18 @@
+MVP
+
+- Simple and first thing you can give to first set of users
+- Talk to users before building MVP
+- Launch something quickly (bad or not): weeks not month
+- Get initials customers
+- Get feedback from initial customers
+- Iterate
+- start with limited set of functionalities
+- timebox your spec: 3-4 weeks max
+- write your spec
+- Cut your spec
+
+Characteristics
+- Serve at least one specific targeted audience
+- address one key point or pain point
+- has a distinct well design user experience, functionnal, usable
+- can be built and launch quickly

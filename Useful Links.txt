@@ -1,0 +1,38 @@
+Understanding the Flutter Project Structure
+https://medium.com/@logeshgcp/understanding-the-flutter-project-structure-84de4ec3ce5f
+
+Folder structure for Flutter with clean architecture. How I do
+https://felipeemidio.medium.com/folder-structure-for-flutter-with-clean-architecture-how-i-do-bbe29225774f
+
+Flutter and the pubspec file
+https://docs.flutter.dev/tools/pubspec
+
+TextStyle class
+https://api.flutter.dev/flutter/painting/TextStyle-class.html
+
+Buttons
+https://m2.material.io/components/buttons/android#outlined-button
+
+Flutter Layout Cheat Sheet
+https://medium.com/flutter-community/flutter-layout-cheat-sheet-5363348d037e
+
+freemarker Manual
+https://freemarker.apache.org/docs/search-results.html?q=loop
+
+Dart language spec
+https://github.com/dart-lang/language/blob/main/specification/dartLangSpec.tex
+
+Javascript color picker
+https://jscolor.com/
+
+Flutter Widget packages
+https://github.com/flutter/flutter/tree/master/packages/flutter/lib/src/widgets
+
+Liquibase change log
+https://contribute.liquibase.com/extensions-integrations/directory/integration-docs/springboot/
+
+Liquibase using variable
+https://stackoverflow.com/questions/66359867/liquibase-use-a-variable-to-set-changeset-author
+
+Miscrosoft Common Data Model
+https://github.com/microsoft/CDM/tree/master/schemaDocuments/core/operationsCommon/Tables/Common/Customer/Miscellaneous

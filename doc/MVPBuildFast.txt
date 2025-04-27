@@ -1,0 +1,236 @@
+*** GIT HUB: https://github.com/SylvainYYC/build-mvp-fast/blob/main/README.md
+
+MVPBUILDFAST.COM (STARTUP MVP)
+or BuildMVPFast.com 
+
+
+Allow Startup to quickly and easily generate a functionnal Mobile MVP app.
+Users can select from sets of screen type, templates and entity models using a
+WISIWIG Web editor and create the screen prototypes using Fabric.js 
+http://fabricjs.com/fabric-intro-part-1
+https://github.com/adrianhajdin/figma_clone?tab=readme-ov-file#tech-stack
+
+Editor could be Sketch like instead of too formal.
+- have tutorials
+
+- Subscription based and have tracking data for their MVP so they are locked in
+
+Once their screen prototypes meat their MVP requirements, they can
+generate and see the mobile app executed in their web browser.
+They can then decide to download and publish the applicatoin.
+
+AI: free text where they describe their ideas and we generate wireframe from it
+
+- support for advanced customization
+- subscription based model or one time
+- service to store the prototype so they can come back and modify it
+- integration with external APIs 
+- integration with pre-defined APIs
+- APIs generation
+- integration with MVP database.
+- analytics integration 
+- payment integration
+- login integration with google, facebook, etc.
+- MFA login
+- Capchat
+- Automatic app submission to app store
+
+-- Behind the scene we use a Cookie Cutter template to generate the Flutter application ???
+-- Deploy on Google Cloud: https://startup.google.com/cloud/
+
+   https://cloud.google.com/domains/docs/register-domain
+
+Cookie Cutter documentation
+https://cookiecutter.readthedocs.io/en/stable/cookiecutter.html
+https://cookiecutter.readthedocs.io/en/1.7.2/README.html
+https://github.com/ggarcia24/cookiecutter-wptheme
+
+Flutter create new project
+https://www.educative.io/answers/how-to-create-a-new-flutter-project
+
+Flutter CI/CD
+https://inveritasoft.com/blog/ci-cd-for-flutter-apps
+
+Flutter templates
+https://www.google.com/search?q=flutter+templates&ie=UTF-8&oe=UTF-8&hl=en-ca&client=safari
+https://codecanyon.net/category/mobile/flutter
+https://github.com/mitesh77/Best-Flutter-UI-Templates
+https://blog.logrocket.com/32-free-flutter-templates-mobile-apps/
+
+Flutter prototype
+https://www.google.com/search?q=vuejs+prototype+component+open+source&client=safari&sca_esv=ece48eb9caae0a0c&sca_upv=1&hl=en-ca&sxsrf=ADLYWIJrXxhWGJJYEBX_A4tikz_e_-7RFA%3A1716617452912&ei=7IBRZoWoN-Hv0PEPnfCj4Aw&udm=&oq=vuejs+prototype+component+open+source&gs_lp=EhNtb2JpbGUtZ3dzLXdpei1zZXJwIiV2dWVqcyBwcm90b3R5cGUgY29tcG9uZW50IG9wZW4gc291cmNlMggQABiABBiiBDIIEAAYgAQYogRIzm9Q-BlY62VwAngAkAEBmAH3AaABrAyqAQUwLjguMrgBA8gBAPgBAZgCC6AC8AvCAgoQABiwAxjWBBhHmAMAiAYBkAYIkgcFMi43LjKgB9YZ&sclient=mobile-gws-wiz-serp
+
+QR Code tree
+https://linktr.ee/
+
+FIGMA;
+- Save Figma file to local file
+- Setup API https://www.figma.com/developers/api#files 
+https://github.com/figma/rest-api-spec
+https://figmaresource.com/open-fashion-free-ecommerce-ui-kit-for-figma/
+https://unsplash.com/
+https://www.figma.com/community/file/1311159026125960259
+https://github.com/bernaferrari/FigmaToCode
+
+- API DEMO https://github.com/figma/figma-api-demo
+- Open customer file in Figma and extract all layers, information
+- Generate supmvp file and generate application
+- Figma plugin sample: https://github.com/figma/plugin-samples
+
+Apollo API:
+https://knowledge.apollo.io/hc/en-us/articles/4416173158541-Use-the-Apollo-REST-API
+https://app.apollo.io/#/onboarding-hub/queue?useCase=FOUNDATIONAL
+
+LOGO:
+https://looka.com/
+
+Freemarker:
+https://freemarker.apache.org/docs/dgui_quickstart.html
+
+Emails + Forms
+https://emailoctopus.com/features/forms-and-landing-pages
+
+----- INTERNET LINKS
+Search: - Flutter upgrade existing project
+Hosting MAC to generate IOS APP
+- https://www.macincloud.com / https://checkout.macincloud.com
+AWS MAC IMAGE !!!!
+    
+Flutter project sturcture
+- https://medium.com/@logeshgcp/understanding-the-flutter-project-structure-84de4ec3ce5f
+
+READ ABOUT MVP
+https://www.process.st/mvp-app/
+https://longform.asmartbear.com/slc/
+https://adamthewan.com/blog/meetbutter/how-we-built-meetbutter-three-weeks/
+https://youtu.be/jpQJ8aOThNY?si=HW_85EwJIsq44zqM => Present AWS Amplify
+https://youtu.be/YwEEV0wHnaA?si=5l4502Xke-49DXAW
+https://hypermvp.com/startups/why-do-many-startups-struggle-to-build-mvp/
+https://www.salesmvplab.com/about
+https://youtu.be/YwEEV0wHnaA?si=Z2gej_0ats6v1VDk
+
+Use Cofounder lab to reach out to existing startups
+https://cofounderslab.com/discuss
+Advertize on 
+https://startupstash.com/
+https://www.indiehackers.com/
+
+-- Kubernetes management 
+argoproj.github.io
+
+Conference
+https://microconf.com/americas
+
+Concurrents:
+- https://appx-digital.com/ (service)
+- AWS Amplify
+https://www.softr.io/
+- bubble.io
+Airtable.com
+Zapier.com
+ Make.com
+- andromo.com
+??? https://www.cortex.io/products/scaffolder
+https://uigenerator.org/?type=1&category=2
+https://www.airdev.co/
+https://unbounce.com/landing-pages-nb/?gad_source=1&gclid=CjwKCAjwvIWzBhAlEiwAHHWgvdO3cjUuNQsNnrTfaAOlIJ7L8r5ezLPSCmfs65fqTyYKOqx-8SWA5xoC9ecQAvD_BwE
+-- App submission services
+https://www.appsubmitter.io/
+https://www.web.com/
+https://webflow.com/pricing
+Elementor.com
+
+-- Presentation Software
+https://focusky.com/digital-presentation-examples.php
+https://www.videoscribe.co/
+https://creatify.ai/
+
+-- Look at their website
+https://www.codeventures.com/?utm_source=adwords&utm_campaign=CodeVentures&utm_term=find%20a%20cofounder&utm_medium=ppc&hsa_tgt=kwd-491502260592&hsa_kw=find%20a%20cofounder&hsa_ver=3&hsa_grp=139139757033&hsa_acc=7184422630&hsa_net=adwords&hsa_cam=17491907000&hsa_ad=603692266510&hsa_mt=b&hsa_src=g&gad_source=1&gclid=Cj0KCQjw0ruyBhDuARIsANSZ3wpnZMxgH_qvFYcYmCNMULH6nufp80XeJBwT9EIRKsr3pkJ1pHqsB80aAriTEALw_wcB
+
+
+- Subscriptoin based resources
+- pre-reserved number of our a month for resources
+    - you don't decide what type of resources and can switch
+    between roles...... we source them and you don't have to find them
+    , we garanty them and provide the platform, reporting, etc
+    - pay for pre-reserved capacity like a retainer
+
+
+affiliate
+https://www.godaddy.com/en-ca/affiliate-programs
+https://www.google.com/search?q=google+analytics+affiliate+program&client=safari&sca_esv=b1f6889afc73a5b3&sca_upv=1&sxsrf=ADLYWIJXJaeSoNLMg6cS3mMIn-ckBFUm3A%3A1718363339877&ei=yyRsZoCZNfSf0PEPobmhqAk&oq=google+analytics+aff&gs_lp=EhNtb2JpbGUtZ3dzLXdpei1zZXJwIhRnb29nbGUgYW5hbHl0aWNzIGFmZioCCAAyBRAAGIAEMgUQABiABDIFEAAYgAQyBhAAGBYYHjIGEAAYFhgeMgsQABiABBiGAxiKBTILEAAYgAQYhgMYigUyCxAAGIAEGIYDGIoFSP4xUNwJWNgmcAF4ApABAJgBmgGgAbAFqgEDMC41uAEByAEA-AEBmAIGoALRBMICBBAAGEfCAgoQABiABBhDGIoFwgILEAAYgAQYsQMYgwHCAgsQABiABBiRAhiKBZgDAIgGAZAGCJIHAzIuNKAHsCU&sclient=mobile-gws-wiz-serp&dlnr=1&sei=ejxwZrKkJseC0PEP0MukkA0
+https://cloud.google.com/affiliate-program
+
+
+A/B Testing
+Google Tag Manager
+
+AI 
+
+ScanCode to verify data ownership of models and avoir litigatitons
+https://scancode-toolkit.readthedocs.io/en/latest/getting-started/home.html
+
+vLLM is a fast and easy-to-use library for LLM inference and serving.
+https://docs.vllm.ai/en/stable/
+
+-- LLM Agents
+https://www.promptingguide.ai/research/llm-agents
+
+
+https://ai.meta.com/blog/code-llama-large-language-model-coding/
+https://github.com/meta-llama/codellama
+https://llama.meta.com/llama-downloads/
+
+https://www.datacamp.com/tutorial/complete-databricks-dolly-tutorial
+https://medium.com/@raju.kandasamy/dolly-llm-as-service-part-1-c6505efe99f0
+https://vectara.com/blog/large-language-models-llms-for-code-generation-part-1/
+https://accubits.com/open-source-program-synthesis-models-leaderboard/polycoder/
+
+https://www.freecodecamp.org/news/python-back-end-development-the-beginners-guide/
+
+https://www.scribbledata.io/blog/the-top-llms-for-code-generation-2024-edition/
+https://web.stanford.edu/class/cs224g/slides/Code%20Generation%20with%20LLMs.pdf
+
+
+
+---------------------
+-- Create Java API to generate HTML page
+---------------------
+
+3- Use JSoup to validate generated html, etc
+https://jsoup.org/cookbook/introduction/parsing-a-document
+
+Need to filter INPUT from illegal (like physing, scam, virus, etc)
+need to filter OUPUT to make sure safe to run or display
+
+-- Automatically generate 
+-- Automatically Submit an app to AppStore using App Store Connect REST API
+https://developer.apple.com/documentation/appstoreconnectapi
+https://docs.flutter.dev/deployment/ios
+
+Using Android Google Play Console for Beta and APple Testflight
+
+-- Automatically Submit an app to Google Store using Google Play Developer API
+https://developers.google.com/android-publisher
+https://docs.flutter.dev/deployment/android
+
+4- Setup Posgresql DB with Liquibase
+
+5- Integrate login with google:
+https://spring.io/guides/tutorials/spring-boot-oauth2
+https://www.codejava.net/frameworks/spring-boot/oauth2-login-with-google-example
+
+6- Download HTML Templates for startup page:
+https://dev.to/davidepacilio/40-free-html-landing-page-templates-3gfp
+
+7- integreate secrets with pipelines
+https://www.youtube.com/watch?v=5xngh29yx9A
+https://www.youtube.com/watch?v=TLB5MY9BBa4
+https://www.youtube.com/watch?v=UaB-0e76LdQ&t=603s
+https://www.youtube.com/watch?v=us0VjFiHogo&t=83s
+https://stackoverflow.com/questions/68012948/how-to-add-secrets-to-application-properties-file-before-build-step
+https://docs.github.com/en/actions/security-guides/using-secrets-in-github-actions
+
+8- Company website template:
+https://www.barraiser.com/
