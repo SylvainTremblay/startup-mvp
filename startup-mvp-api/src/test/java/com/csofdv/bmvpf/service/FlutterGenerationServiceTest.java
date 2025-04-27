@@ -2,6 +2,7 @@ package com.csofdv.bmvpf.service;
 
 import com.csofdv.bmvpf.dto.ApplicationDto;
 import com.csofdv.bmvpf.dto.AttributeTypeDto;
+import com.csofdv.bmvpf.dto.OrganizationDto;
 import com.csofdv.bmvpf.dto.ViewDto;
 import com.csofdv.bmvpf.dto.WidgetDto;
 import com.csofdv.bmvpf.dto.WidgetTypeAttributeDto;
@@ -26,7 +27,8 @@ class FlutterGenerationServiceTest {
     public void testGenerateApplication() throws GenerationServiceException {
         // Given
         ApplicationDto applicationDto = new ApplicationDto();
-        applicationDto.setOrganizationName("com.sjnc");
+        applicationDto.setOrganizationDto(new OrganizationDto());
+        applicationDto.getOrganizationDto().setOrganizationName("com.csofdv");
         applicationDto.setApplicationName("test_app");
         applicationDto.setApplicationId(UUID.randomUUID().toString());
 

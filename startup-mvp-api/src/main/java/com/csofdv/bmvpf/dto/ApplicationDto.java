@@ -16,6 +16,8 @@ public class ApplicationDto {
 
     private PlatformDto platformDto;
 
+    private String applicationId;
+
     private String applicationName;
 
     private String description;

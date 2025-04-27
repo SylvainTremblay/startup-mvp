@@ -76,6 +76,16 @@ public class FlutterGenerationService extends GeneratorService {
             log.log(Level.SEVERE, errorMessage);
             throw new GenerationServiceException(errorMessage);
         }
+        if (applicationDto.getOrganizationDto() == null) {
+            String errorMessage = "Organization is null";
+            log.log(Level.SEVERE, errorMessage);
+            throw new GenerationServiceException(errorMessage);
+        }
+        if (applicationDto.getOrganizationDto().getOrganizationName() == null || applicationDto.getOrganizationDto().getOrganizationName().isEmpty()) {
+            String errorMessage = "Organization name is null or empty";
+            log.log(Level.SEVERE, errorMessage);
+            throw new GenerationServiceException(errorMessage);
+        }
         if (applicationDto.getMainViewDto() == null) {
             String errorMessage = "Main view is null";
             log.log(Level.SEVERE, errorMessage);
@@ -101,7 +111,7 @@ public class FlutterGenerationService extends GeneratorService {
         try {
             ProcessBuilder processBuilder = new ProcessBuilder();
             processBuilder.directory(new File(applicationFolder));
-            processBuilder.command("flutter", "create", applicationDto.getApplicationName(), "--org", applicationDto.getOrganizationName());
+            processBuilder.command("flutter", "create", applicationDto.getApplicationName(), "--org", applicationDto.getOrganizationDto().getOrganizationName());
             Process process = processBuilder.start();
             // Read the output from the process
             BufferedReader reader = new BufferedReader(new InputStreamReader(process.getInputStream()));

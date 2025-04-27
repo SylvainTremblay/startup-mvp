@@ -1,7 +1,8 @@
 # Compiled class file
 *.class
-build-mvp-fast-api/build/
-build-mvp-fast-api/.gradle/
+**/startup-mvp-api/build/**
+**/startup-mvp-api/.gradle/**
+**/startup-mvp-api/.idea/**
 
 # Log file
 *.log
