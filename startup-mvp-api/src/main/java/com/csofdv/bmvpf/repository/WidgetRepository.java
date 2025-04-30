@@ -1,0 +1,8 @@
+package com.csofdv.bmvpf.repository;
+
+import com.csofdv.bmvpf.model.Widget;
+import org.springframework.data.jpa.repository.JpaRepository;
+
+public interface WidgetRepository extends JpaRepository<Widget, Long> {
+}
+
