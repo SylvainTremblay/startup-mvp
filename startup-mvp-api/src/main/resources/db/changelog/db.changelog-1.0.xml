@@ -40,6 +40,19 @@
     </createTable>
     <addAutoIncrement tableName="attribute_type" columnName="attribute_type_id" columnDataType="BIGINT" startWith="1" incrementBy="1"/>
 
+    <createTable tableName="attribute_type_value">
+      <column name="attribute_type_value_id" type="BIGINT">
+        <constraints nullable="false" primaryKey="true" primaryKeyName="pk_attribute_type_value"/>
+      </column>
+      <column name="attribute_type_id" type="BIGINT">
+        <constraints nullable="false" referencedTableName="attribute_type" referencedColumnNames="attribute_type_id" foreignKeyName="fk_attribute_type_attribute_id"/>
+      </column>
+      <column name="attribute_value" type="VARCHAR(50)">
+        <constraints nullable="false"/>
+      </column>
+    </createTable>
+    <addAutoIncrement tableName="attribute_type_value" columnName="attribute_type_value_id" columnDataType="BIGINT" startWith="1" incrementBy="1"/>
+
     <createTable tableName="widget_type">
       <column name="widget_type_id" type="BIGINT">
         <constraints nullable="false" primaryKey="true" primaryKeyName="pk_widget_type"/>
@@ -177,8 +190,8 @@
       <column name="widget_id" type="BIGINT">
         <constraints nullable="false" referencedTableName="widget" referencedColumnNames="widget_id" foreignKeyName="fk_widget_widget_id"/>
       </column>
-      <column name="widget_type_attribute_id" type="BIGINT">
-        <constraints nullable="false" referencedTableName="widget_type_attribute" referencedColumnNames="widget_type_attribute_id" foreignKeyName="fk_widget_type_attribute_id"/>
+      <column name="attribute_type_id" type="BIGINT">
+        <constraints nullable="false" referencedTableName="attribute_type" referencedColumnNames="attribute_type_id" foreignKeyName="fk_widget_attribute_value_attribute_id"/>
       </column>
       <column name="attribute_value" type="VARCHAR(255)">
         <constraints nullable="false"/>

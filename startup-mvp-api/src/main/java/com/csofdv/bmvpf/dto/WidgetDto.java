@@ -45,6 +45,8 @@ public class WidgetDto {
             throw new IllegalArgumentException("Attribute " + name + " must be an int");
         } else if ("String".equals(widgetTypeAttributeDto.getAttributeType().getName()) && !(value instanceof String)) {
             throw new IllegalArgumentException("Attribute " + name + " must be a string");
+        } else if (widgetTypeAttributeDto.getAttributeType().isEnumeration() && !(value instanceof AttributeTypeValueDto)) {
+            throw new IllegalArgumentException("Attribute " + name + " must be an attribute type value");
         }
         attributes.put(name, value);
     }

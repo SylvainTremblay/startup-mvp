@@ -34,6 +34,8 @@
                 ], // <Widget> []
             <#elseif typeName == "Class">
               <#if attribute.getAttributeNameRequired()>${attributeKey}: </#if>${attributeValue},
+            <#elseif attribute.getAttributeType().isEnumeration()>
+              <#if attribute.getAttributeNameRequired()>${attributeKey}: </#if>${typeName}.${attributeValue.getAttributeValue()},
             </#if>
         </#if>
     </#list>

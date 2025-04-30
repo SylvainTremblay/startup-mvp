@@ -4,6 +4,7 @@ import static org.junit.jupiter.api.Assertions.*;
 
 import com.csofdv.bmvpf.dto.ApplicationDto;
 import com.csofdv.bmvpf.dto.AttributeTypeDto;
+import com.csofdv.bmvpf.dto.AttributeTypeValueDto;
 import com.csofdv.bmvpf.dto.ViewDto;
 import com.csofdv.bmvpf.dto.WidgetDto;
 import com.csofdv.bmvpf.dto.WidgetTypeActionDto;
@@ -25,15 +26,22 @@ public class TemplateServiceIntegrationTest {
     @Autowired
     private TemplateService templateService;
 
-    private AttributeTypeDto stringAttributeType = createAttributeTypeDto("String");
-    private AttributeTypeDto intAttributeType = createAttributeTypeDto("int");
-    private AttributeTypeDto classAttributeType = createAttributeTypeDto("Class");
-    private AttributeTypeDto widgetAttributeType = createAttributeTypeDto("Widget");
-    private AttributeTypeDto arrayAttributeType = createAttributeTypeDto("Array");
+    private final AttributeTypeDto stringAttributeType = createAttributeTypeDto("String");
+    private final AttributeTypeDto intAttributeType = createAttributeTypeDto("int");
+    private final AttributeTypeDto classAttributeType = createAttributeTypeDto("Class");
+    private final AttributeTypeDto iconsAttributeType = createAttributeTypeDto("Icons", true);
+    private final AttributeTypeDto mainAxisAlignmentAttributeType = createAttributeTypeDto("MainAxisAlignment", true);
+    private final AttributeTypeDto widgetAttributeType = createAttributeTypeDto("Widget");
+    private final AttributeTypeDto arrayAttributeType = createAttributeTypeDto("Array");
 
     private static AttributeTypeDto createAttributeTypeDto(String name) {
+        return createAttributeTypeDto(name, false);
+    }
+
+    private static AttributeTypeDto createAttributeTypeDto(String name, boolean isEnumeration) {
         AttributeTypeDto attributeTypeDto = new AttributeTypeDto();
         attributeTypeDto.setName(name);
+        attributeTypeDto.setEnumeration(isEnumeration);
         return attributeTypeDto;
     }
 
@@ -105,9 +113,11 @@ public class TemplateServiceIntegrationTest {
 
     private WidgetDto createIconWidget() {
         WidgetTypeDto iconWidgetTypeDto = new WidgetTypeDto("Icon");
-        iconWidgetTypeDto.addAttributeType(createWidgetTypeAttributeDto("icon", classAttributeType));
+        iconWidgetTypeDto.addAttributeType(createWidgetTypeAttributeDto("icon", iconsAttributeType));
         WidgetDto iconWidget = new WidgetDto(iconWidgetTypeDto);
-        iconWidget.setAttribute("icon", "Icons.add");
+        AttributeTypeValueDto iconAdd = new AttributeTypeValueDto();
+        iconAdd.setAttributeValue("add");
+        iconWidget.setAttribute("icon", iconAdd);
         return iconWidget;
     }
 
@@ -131,12 +141,14 @@ public class TemplateServiceIntegrationTest {
     private WidgetDto createCenterWidget() {
 
         WidgetTypeDto columnWidgetTypeDto = new WidgetTypeDto("Column");
-        columnWidgetTypeDto.addAttributeType(createWidgetTypeAttributeDto("mainAxisAlignment", classAttributeType));
+        columnWidgetTypeDto.addAttributeType(createWidgetTypeAttributeDto("mainAxisAlignment", mainAxisAlignmentAttributeType));
         columnWidgetTypeDto.getAttributeTypes().get("mainAxisAlignment").setAttributeNameRequired(true);
         columnWidgetTypeDto.addAttributeType(createWidgetTypeAttributeDto("children", arrayAttributeType));
 
         WidgetDto columnWidget = new WidgetDto(columnWidgetTypeDto);
-        columnWidget.setAttribute("mainAxisAlignment", "MainAxisAlignment.center");
+        AttributeTypeValueDto centerAlignment = new AttributeTypeValueDto();
+        centerAlignment.setAttributeValue("center");
+        columnWidget.setAttribute("mainAxisAlignment", centerAlignment);
         WidgetDto counterWidget = createTextWidget("'$_counter'", false);
         counterWidget.getWidgetType().addAttributeType(createWidgetTypeAttributeDto("style", classAttributeType));
         counterWidget.getWidgetType().getAttributeTypes().get("style").setAttributeNameRequired(true);

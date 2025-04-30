@@ -15,5 +15,7 @@ public class AttributeTypeDto {
 
     private String name;
 
+    private boolean enumeration;
+
     private LocalDateTime timestamp;
 }
