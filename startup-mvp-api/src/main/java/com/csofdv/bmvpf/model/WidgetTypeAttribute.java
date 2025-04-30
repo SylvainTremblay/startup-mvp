@@ -8,9 +8,15 @@ import jakarta.persistence.Column;
 import jakarta.persistence.Table;
 import jakarta.persistence.ManyToOne;
 import jakarta.persistence.JoinColumn;
+import lombok.Getter;
+import lombok.Setter;
+import lombok.ToString;
 
 @Entity
 @Table(name = "WIDGET_TYPE_ATTRIBUTE")
+@Getter
+@Setter
+@ToString
 public class WidgetTypeAttribute {
 
     @Id

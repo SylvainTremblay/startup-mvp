@@ -1,10 +1,17 @@
 package com.csofdv.bmvpf.model;
 
 import jakarta.persistence.*;
+import lombok.Getter;
+import lombok.Setter;
+import lombok.ToString;
+
 import java.time.LocalDateTime;
 
 @Entity
 @Table(name = "WIDGET")
+@Getter
+@Setter
+@ToString
 public class Widget {
 
     @Id
