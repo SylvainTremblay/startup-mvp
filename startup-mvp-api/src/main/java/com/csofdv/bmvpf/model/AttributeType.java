@@ -25,5 +25,6 @@ public class AttributeType {
     @Column(name = "NAME", nullable = false, length = 30)
     private String name;
 
-    // Getters and Setters
+    @Column(name = "ENUM", nullable = true)
+    private Boolean enumeration;
 }

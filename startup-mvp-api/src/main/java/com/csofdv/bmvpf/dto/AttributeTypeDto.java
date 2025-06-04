@@ -18,4 +18,11 @@ public class AttributeTypeDto {
     private boolean enumeration;
 
     private LocalDateTime timestamp;
+
+    public AttributeTypeDto(String name) {
+        this.name = name;
+    }
+
+    public AttributeTypeDto() {
+    }
 }

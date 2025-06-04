@@ -4,7 +4,7 @@ MVPBUILDFAST.COM (STARTUP MVP)
 or BuildMVPFast.com 
 
 
-Allow Startup to quickly and easily generate a functionnal Mobile MVP app.
+Allow Startup to quickly and easily generate a functional MVP application.
 Users can select from sets of screen type, templates and entity models using a
 WISIWIG Web editor and create the screen prototypes using Fabric.js 
 http://fabricjs.com/fabric-intro-part-1

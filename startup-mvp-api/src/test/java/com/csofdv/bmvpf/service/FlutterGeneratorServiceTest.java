@@ -17,10 +17,10 @@ import java.util.UUID;
 
 @SpringBootTest
 @ActiveProfiles("test")
-class FlutterGenerationServiceTest {
+class FlutterGeneratorServiceTest {
 
     @Autowired
-    private FlutterGenerationService flutterGenerationService;
+    private FlutterGeneratorService flutterGeneratorService;
 
     @Test
     public void testGenerateApplication() throws GenerationServiceException {
@@ -50,7 +50,7 @@ class FlutterGenerationServiceTest {
         viewDto.setMainWidgetDto(textWidgetDto);
         applicationDto.getViewDtos().add(viewDto);
         // When
-        String result = flutterGenerationService.generateApplication(applicationDto);
+        String result = flutterGeneratorService.generateApplication(applicationDto);
 
         // Then
     }

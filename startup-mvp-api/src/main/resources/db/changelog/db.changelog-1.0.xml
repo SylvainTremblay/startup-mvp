@@ -37,6 +37,9 @@
       <column name="name" type="VARCHAR(30)">
         <constraints nullable="false"/>
       </column>
+      <column name="enum" type="BOOLEAN">
+        <constraints nullable="false"/>
+      </column>
     </createTable>
     <addAutoIncrement tableName="attribute_type" columnName="attribute_type_id" columnDataType="BIGINT" startWith="1" incrementBy="1"/>
 
@@ -72,7 +75,7 @@
       <column name="widget_type_attribute_id" type="BIGINT">
         <constraints nullable="false" primaryKey="true" primaryKeyName="pk_widget_type_attribute"/>
       </column>
-      <column name="attribute_name" type="VARCHAR(20)">
+      <column name="attribute_name" type="VARCHAR(50)">
         <constraints nullable="false"/>
       </column>
       <column name="attribute_type_id" type="BIGINT">
@@ -80,10 +83,10 @@
       </column>
       <column name="since_platform_version" type="VARCHAR(20)"/>
       <column name="until_platform_version" type="VARCHAR(20)"/>
-      <column name="required" type="BOOLEAN">
+      <column name="required" type="BOOLEAN" defaultValue="false">
         <constraints nullable="false"/>
       </column>
-      <column name="attribute_name_required" type="BOOLEAN">
+      <column name="attribute_name_required" type="BOOLEAN" defaultValue="false">
         <constraints nullable="false"/>
       </column>
       <column name="widget_type_id" type="BIGINT">

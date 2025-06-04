@@ -7,21 +7,19 @@ import lombok.extern.java.Log;
 import org.springframework.stereotype.Service;
 
 import java.io.BufferedReader;
-import java.io.BufferedWriter;
 import java.io.File;
-import java.io.FileWriter;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.util.logging.Level;
 
 @Service
 @Log
-public class FlutterGenerationService extends GeneratorService {
+public class FlutterGeneratorService extends GeneratorService {
 
     public static final String MAIN_DART_FILE_TEMPLATE = "flutter/main.ftl";
     public static final String VIEW_DART_FILE_TEMPLATE = "flutter/view.ftl";
     public static final String WIDGET_DART_FILE_TEMPLATE = "flutter/widget.ftl";
-    public static final String MAIN_DART_FILE = "lib/main.dart";
+    public static final String MAIN_DART_FILE_LOCATION = "lib/main.dart";
 
     /**
      * Generates the skeleton of the Flutter application using View CLI create method.
@@ -66,13 +64,13 @@ public class FlutterGenerationService extends GeneratorService {
      * @param applicationFolder The folder where the application is generated.
      */
     void generateMainDartFile(ApplicationDto applicationDto, String applicationFolder) throws GenerationServiceException {
-        log.entering(FlutterGenerationService.class.getSimpleName(),"generateMainDartFile", applicationDto.getApplicationName());
+        log.entering(FlutterGeneratorService.class.getSimpleName(),"generateMainDartFile", applicationDto.getApplicationName());
         String result = templateService.processTemplate("flutter/main.ftl", applicationDto, "object");
         // Replace the main.dart file in the generated application
-        String mainDartFile = applicationFolder + "/" + applicationDto.getApplicationName() + "/" + MAIN_DART_FILE;
+        String mainDartFile = applicationFolder + "/" + applicationDto.getApplicationName() + "/" + MAIN_DART_FILE_LOCATION;
         File file = new File(mainDartFile);
         writeToFile(file, result);
-        log.exiting(FlutterGenerationService.class.getSimpleName(),"generateMainDartFile");
+        log.exiting(FlutterGeneratorService.class.getSimpleName(),"generateMainDartFile");
     }
 
     /**
@@ -82,7 +80,7 @@ public class FlutterGenerationService extends GeneratorService {
      * @param applicationFolder The folder where the application is generated.
      */
     private void generateViews(ApplicationDto applicationDto, String applicationFolder) throws GenerationServiceException {
-        log.entering(FlutterGenerationService.class.getSimpleName(),"generateViews", applicationDto.getApplicationName());
+        log.entering(FlutterGeneratorService.class.getSimpleName(),"generateViews", applicationDto.getApplicationName());
         // First create the views folder if it doesn't exist
         String viewsFolder = applicationFolder + "/" + applicationDto.getApplicationName() + "/lib/views";
         File viewsDir = new File(viewsFolder);
@@ -105,17 +103,6 @@ public class FlutterGenerationService extends GeneratorService {
             File file = new File(viewDartFile);
             writeToFile(file, result);
         }
-        log.exiting(FlutterGenerationService.class.getSimpleName(),"generateViews");
+        log.exiting(FlutterGeneratorService.class.getSimpleName(),"generateViews");
     }
-
-    private void writeToFile(File file, String result) throws GenerationServiceException {
-        try (BufferedWriter writer = new BufferedWriter(new FileWriter(file))) {
-            writer.write(result);
-        } catch (IOException e) {
-            String errorMessage = "Error writing to file: " + e.getMessage();
-            log.log(Level.SEVERE, errorMessage, e);
-            throw new GenerationServiceException(errorMessage, e);
-        }
-    }
-
 }

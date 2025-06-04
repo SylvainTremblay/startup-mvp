@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/.idea/modules/build-mvp-fast.main.iml" filepath="$PROJECT_DIR$/.idea/modules/build-mvp-fast.main.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/startup-mvp.main.iml" filepath="$PROJECT_DIR$/.idea/modules/startup-mvp.main.iml" />
     </modules>
   </component>
 </project>

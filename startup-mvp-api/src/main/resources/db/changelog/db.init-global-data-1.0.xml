@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.8.xsd">
+    <changeSet  author="STremblay"  id="init-global-data-1.0">
+        <!-- Insert Platform  -->
+        <insert tableName="platform">
+            <column name="platform_code">HTML5</column>
+            <column name="platform_name">Hypertext Markup Language 5</column>
+            <column name="platform_version">5.0.0</column>
+            <column name="version_date">2025-06-01</column>
+        </insert>
+        <insert tableName="platform">
+            <column name="platform_code">FLUTTER</column>
+            <column name="platform_name">Flutter</column>
+            <column name="platform_version">3.29.3</column>
+            <column name="version_date">2025-06-01</column>
+        </insert>
+        <!-- Insert Attribute Types -->
+        <insert tableName="attribute_type">
+            <column name="attribute_type_id">1</column>
+            <column name="name">String</column>
+            <column name="enum">false</column>
+        </insert>
+        <insert tableName="attribute_type">
+            <column name="attribute_type_id">2</column>
+            <column name="name">int</column>
+            <column name="enum">false</column>
+        </insert>
+        <insert tableName="attribute_type">
+            <column name="attribute_type_id">3</column>
+            <column name="name">Class</column>
+            <column name="enum">false</column>
+        </insert>
+        <insert tableName="attribute_type">
+            <column name="attribute_type_id">4</column>
+            <column name="name">Widget</column>
+            <column name="enum">false</column>
+        </insert>
+        <insert tableName="attribute_type">
+            <column name="attribute_type_id">5</column>
+            <column name="name">Array</column>
+            <column name="enum">false</column>
+        </insert>
+    </changeSet>
+</databaseChangeLog>
+
