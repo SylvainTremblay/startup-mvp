@@ -2,6 +2,7 @@ package com.startupmvp.api.controller;
 
 import com.startupmvp.api.model.View;
 import com.startupmvp.api.service.ViewService;
+import io.swagger.v3.oas.annotations.tags.Tag;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -9,6 +10,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 import java.util.Optional;
 
+@Tag(name = "View", description = "Operations related to views")
 @RestController
 @RequestMapping("/api/view")
 public class ViewController {

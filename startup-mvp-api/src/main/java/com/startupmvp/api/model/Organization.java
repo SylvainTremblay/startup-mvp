@@ -2,12 +2,11 @@ package com.startupmvp.api.model;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.Id;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
 import jakarta.persistence.Column;
 import jakarta.persistence.Table;
 import jakarta.persistence.OneToOne;
 import jakarta.persistence.JoinColumn;
+import jakarta.persistence.CascadeType;
 import lombok.Getter;
 import lombok.Setter;
 import lombok.ToString;
@@ -28,9 +27,10 @@ public class Organization {
     @Column(name = "NAME", nullable = false, length = 100)
     private String name;
 
-    @OneToOne
+    @OneToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "ADDRESS_ID", nullable = false)
     private OrganizationAddress address;
 
     // Getters and Setters
 }
+

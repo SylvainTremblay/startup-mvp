@@ -11,7 +11,7 @@ import lombok.Setter;
 import lombok.ToString;
 
 @Entity
-@Table(name = "ORGANIZATION_ADDRESS")
+@Table(name = "organization_address")
 @Getter
 @Setter
 @ToString
@@ -19,23 +19,27 @@ public class OrganizationAddress {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "ADDRESS_ID", nullable = false)
-    private Long addressId;
+    @Column(name = "organization_address_id", nullable = false)
+    private Long organizationAddressId;
 
-    @Column(name = "STREET", nullable = false, length = 100)
-    private String street;
+    @Column(name = "address_line1", nullable = false, length = 255)
+    private String addressLine1;
 
-    @Column(name = "CITY", nullable = false, length = 50)
+    @Column(name = "address_line2", length = 255)
+    private String addressLine2;
+
+    @Column(name = "city", length = 100)
     private String city;
 
-    @Column(name = "STATE", nullable = false, length = 50)
+    @Column(name = "state", length = 50)
     private String state;
 
-    @Column(name = "ZIP_CODE", nullable = false, length = 10)
-    private String zipCode;
+    @Column(name = "country_code", nullable = false, length = 2)
+    private String countryCode;
 
-    @Column(name = "COUNTRY", nullable = false, length = 50)
-    private String country;
+    @Column(name = "postal_code", nullable = false, length = 20)
+    private String postalCode;
 
     // Getters and Setters
 }
+

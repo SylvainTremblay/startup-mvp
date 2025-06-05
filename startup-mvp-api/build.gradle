@@ -1,6 +1,6 @@
 plugins {
 	id 'java'
-	id 'org.springframework.boot' version '3.3.0'
+	id 'org.springframework.boot' version '3.4.5'
 	id 'io.spring.dependency-management' version '1.1.5'
 }
 
@@ -19,12 +19,13 @@ repositories {
 
 dependencies {
 	implementation 'org.springframework.boot:spring-boot-starter-web'
-	implementation group: 'org.springframework.boot', name: 'spring-boot-starter-freemarker', version: '3.3.1'
+	implementation group: 'org.springframework.boot', name: 'spring-boot-starter-freemarker', version: '3.5.0'
 	implementation 'org.springframework.boot:spring-boot-starter-data-jpa'
-	implementation group: 'org.liquibase', name: 'liquibase-core', version: '4.28.0'
-	implementation 'org.apache.commons:commons-lang3:3.12.0'
-	implementation group: 'org.projectlombok', name: 'lombok', version: '1.18.32'
-	annotationProcessor 'org.projectlombok:lombok:1.18.32'
+	implementation group: 'org.liquibase', name: 'liquibase-core', version: '4.32.0'
+	implementation 'org.apache.commons:commons-lang3:3.17.0'
+	implementation group: 'org.projectlombok', name: 'lombok', version: '1.18.38'
+	annotationProcessor 'org.projectlombok:lombok:1.18.38'
+	implementation("org.springdoc:springdoc-openapi-starter-webmvc-ui:2.8.8")
 
 	runtimeOnly 'org.postgresql:postgresql'
 	testImplementation 'org.springframework.boot:spring-boot-starter-test'
