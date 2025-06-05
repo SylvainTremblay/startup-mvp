@@ -15,6 +15,15 @@ import java.util.List;
 import java.util.Set;
 
 public class HtmlSpecDbLoader {
+
+    static Set<String> ELEMENTS_WITH_CHILD = Set.of(
+                    "div", "section", "article", "header", "footer", "main", "aside", "nav",
+                    "ul", "ol", "li", "table", "thead", "tbody", "tr", "td", "th", "form",
+                    "label", "button", "a", "span", "strong", "em", "b", "i",
+                    "p", "h1", "h2", "h3", "h4", "h5", "h6", "blockquote", "pre",
+                    "html", "body", "title", "meta", "link", "script", "style"
+            );
+
     public static void main(String[] args) throws IOException, URISyntaxException {
         System.out.println("HtmlSpecDbLoader started.");
         ObjectMapper mapper = new ObjectMapper();
@@ -24,7 +33,8 @@ public class HtmlSpecDbLoader {
 
         // 2. Get directory of element JSON files
         List<HtmlElement> htmlElements = parseHtmlElements(globalAttributes);
-
+        // Add special elements
+        addSpecialElements(htmlElements);
         // 3. Generate liquibase data insert file
         createLiquibaseInsertFile(htmlElements);
     }
@@ -78,6 +88,9 @@ public class HtmlSpecDbLoader {
             String tagName = htmlNode.fieldNames().next();
             htmlElement = new HtmlElement(tagName);
             htmlElement.getAttributes().addAll(globalAttributes);
+            if (ELEMENTS_WITH_CHILD.contains(tagName)) {
+                htmlElement.getAttributes().add("child");
+            }
             JsonNode htmlTagElement = htmlNode.get(tagName);
             Iterator<String> attributeIt = htmlTagElement.fieldNames();
 
@@ -105,6 +118,18 @@ public class HtmlSpecDbLoader {
             }
         }
         return htmlElement;
+    }
+
+    private static void addSpecialElements(List<HtmlElement> htmlElements) {
+        // Add BODY element with child attribute
+        HtmlElement bodyElement = new HtmlElement("comment");
+        bodyElement.getAttributes().add("child");
+        htmlElements.add(bodyElement);
+
+        // Add HTML element with child attribute
+        HtmlElement htmlElement = new HtmlElement("text");
+        htmlElement.getAttributes().add("child");
+        htmlElements.add(htmlElement);
     }
 
     private static void createLiquibaseInsertFile(List<HtmlElement> htmlElements) {

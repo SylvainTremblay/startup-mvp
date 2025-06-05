@@ -433,6 +433,11 @@
             <column name="widget_type_id">3</column>
         </insert>
         <insert tableName="widget_type_attribute">
+            <column name="attribute_name">child</column>
+            <column name="attribute_type_id">1</column>
+            <column name="widget_type_id">3</column>
+        </insert>
+        <insert tableName="widget_type_attribute">
             <column name="attribute_name">download</column>
             <column name="attribute_type_id">1</column>
             <column name="widget_type_id">3</column>
@@ -624,6 +629,11 @@
             <column name="attribute_type_id">1</column>
             <column name="widget_type_id">4</column>
         </insert>
+        <insert tableName="widget_type_attribute">
+            <column name="attribute_name">child</column>
+            <column name="attribute_type_id">1</column>
+            <column name="widget_type_id">4</column>
+        </insert>
         <!-- Insert aside HTML Element -->
         <insert tableName="widget_type">
             <column name="widget_type_id">5</column>
@@ -763,6 +773,11 @@
         </insert>
         <insert tableName="widget_type_attribute">
             <column name="attribute_name">style</column>
+            <column name="attribute_type_id">1</column>
+            <column name="widget_type_id">5</column>
+        </insert>
+        <insert tableName="widget_type_attribute">
+            <column name="attribute_name">child</column>
             <column name="attribute_type_id">1</column>
             <column name="widget_type_id">5</column>
         </insert>
@@ -908,6 +923,11 @@
             <column name="attribute_type_id">1</column>
             <column name="widget_type_id">6</column>
         </insert>
+        <insert tableName="widget_type_attribute">
+            <column name="attribute_name">child</column>
+            <column name="attribute_type_id">1</column>
+            <column name="widget_type_id">6</column>
+        </insert>
         <!-- Insert tbody HTML Element -->
         <insert tableName="widget_type">
             <column name="widget_type_id">7</column>
@@ -1050,6 +1070,11 @@
             <column name="attribute_type_id">1</column>
             <column name="widget_type_id">7</column>
         </insert>
+        <insert tableName="widget_type_attribute">
+            <column name="attribute_name">child</column>
+            <column name="attribute_type_id">1</column>
+            <column name="widget_type_id">7</column>
+        </insert>
         <!-- Insert header HTML Element -->
         <insert tableName="widget_type">
             <column name="widget_type_id">8</column>
@@ -1189,6 +1214,11 @@
         </insert>
         <insert tableName="widget_type_attribute">
             <column name="attribute_name">style</column>
+            <column name="attribute_type_id">1</column>
+            <column name="widget_type_id">8</column>
+        </insert>
+        <insert tableName="widget_type_attribute">
+            <column name="attribute_name">child</column>
             <column name="attribute_type_id">1</column>
             <column name="widget_type_id">8</column>
         </insert>
@@ -1638,6 +1668,11 @@
             <column name="attribute_type_id">1</column>
             <column name="widget_type_id">11</column>
         </insert>
+        <insert tableName="widget_type_attribute">
+            <column name="attribute_name">child</column>
+            <column name="attribute_type_id">1</column>
+            <column name="widget_type_id">11</column>
+        </insert>
         <!-- Insert canvas HTML Element -->
         <insert tableName="widget_type">
             <column name="widget_type_id">12</column>
@@ -2075,6 +2110,11 @@
             <column name="widget_type_id">14</column>
         </insert>
         <insert tableName="widget_type_attribute">
+            <column name="attribute_name">child</column>
+            <column name="attribute_type_id">1</column>
+            <column name="widget_type_id">14</column>
+        </insert>
+        <insert tableName="widget_type_attribute">
             <column name="attribute_name">async</column>
             <column name="attribute_type_id">1</column>
             <column name="widget_type_id">14</column>
@@ -2266,6 +2306,11 @@
             <column name="attribute_type_id">1</column>
             <column name="widget_type_id">15</column>
         </insert>
+        <insert tableName="widget_type_attribute">
+            <column name="attribute_name">child</column>
+            <column name="attribute_type_id">1</column>
+            <column name="widget_type_id">15</column>
+        </insert>
         <!-- Insert h6 HTML Element -->
         <insert tableName="widget_type">
             <column name="widget_type_id">16</column>
@@ -2405,6 +2450,11 @@
         </insert>
         <insert tableName="widget_type_attribute">
             <column name="attribute_name">style</column>
+            <column name="attribute_type_id">1</column>
+            <column name="widget_type_id">16</column>
+        </insert>
+        <insert tableName="widget_type_attribute">
+            <column name="attribute_name">child</column>
             <column name="attribute_type_id">1</column>
             <column name="widget_type_id">16</column>
         </insert>
@@ -3457,6 +3507,11 @@
             <column name="attribute_type_id">1</column>
             <column name="widget_type_id">23</column>
         </insert>
+        <insert tableName="widget_type_attribute">
+            <column name="attribute_name">child</column>
+            <column name="attribute_type_id">1</column>
+            <column name="widget_type_id">23</column>
+        </insert>
         <!-- Insert u HTML Element -->
         <insert tableName="widget_type">
             <column name="widget_type_id">24</column>
@@ -4026,6 +4081,11 @@
             <column name="widget_type_id">27</column>
         </insert>
         <insert tableName="widget_type_attribute">
+            <column name="attribute_name">child</column>
+            <column name="attribute_type_id">1</column>
+            <column name="widget_type_id">27</column>
+        </insert>
+        <insert tableName="widget_type_attribute">
             <column name="attribute_name">cite</column>
             <column name="attribute_type_id">1</column>
             <column name="widget_type_id">27</column>
@@ -4169,6 +4229,11 @@
         </insert>
         <insert tableName="widget_type_attribute">
             <column name="attribute_name">style</column>
+            <column name="attribute_type_id">1</column>
+            <column name="widget_type_id">28</column>
+        </insert>
+        <insert tableName="widget_type_attribute">
+            <column name="attribute_name">child</column>
             <column name="attribute_type_id">1</column>
             <column name="widget_type_id">28</column>
         </insert>
@@ -4745,6 +4810,11 @@
         </insert>
         <insert tableName="widget_type_attribute">
             <column name="attribute_name">style</column>
+            <column name="attribute_type_id">1</column>
+            <column name="widget_type_id">31</column>
+        </insert>
+        <insert tableName="widget_type_attribute">
+            <column name="attribute_name">child</column>
             <column name="attribute_type_id">1</column>
             <column name="widget_type_id">31</column>
         </insert>
@@ -5361,6 +5431,11 @@
             <column name="attribute_type_id">1</column>
             <column name="widget_type_id">35</column>
         </insert>
+        <insert tableName="widget_type_attribute">
+            <column name="attribute_name">child</column>
+            <column name="attribute_type_id">1</column>
+            <column name="widget_type_id">35</column>
+        </insert>
         <!-- Insert caption HTML Element -->
         <insert tableName="widget_type">
             <column name="widget_type_id">36</column>
@@ -5799,6 +5874,11 @@
         </insert>
         <insert tableName="widget_type_attribute">
             <column name="attribute_name">style</column>
+            <column name="attribute_type_id">1</column>
+            <column name="widget_type_id">38</column>
+        </insert>
+        <insert tableName="widget_type_attribute">
+            <column name="attribute_name">child</column>
             <column name="attribute_type_id">1</column>
             <column name="widget_type_id">38</column>
         </insert>
@@ -7146,6 +7226,11 @@
             <column name="widget_type_id">47</column>
         </insert>
         <insert tableName="widget_type_attribute">
+            <column name="attribute_name">child</column>
+            <column name="attribute_type_id">1</column>
+            <column name="widget_type_id">47</column>
+        </insert>
+        <insert tableName="widget_type_attribute">
             <column name="attribute_name">reversed</column>
             <column name="attribute_type_id">1</column>
             <column name="widget_type_id">47</column>
@@ -7730,6 +7815,11 @@
         </insert>
         <insert tableName="widget_type_attribute">
             <column name="attribute_name">style</column>
+            <column name="attribute_type_id">1</column>
+            <column name="widget_type_id">51</column>
+        </insert>
+        <insert tableName="widget_type_attribute">
+            <column name="attribute_name">child</column>
             <column name="attribute_type_id">1</column>
             <column name="widget_type_id">51</column>
         </insert>
@@ -8914,6 +9004,11 @@
             <column name="attribute_type_id">1</column>
             <column name="widget_type_id">59</column>
         </insert>
+        <insert tableName="widget_type_attribute">
+            <column name="attribute_name">child</column>
+            <column name="attribute_type_id">1</column>
+            <column name="widget_type_id">59</column>
+        </insert>
         <!-- Insert h3 HTML Element -->
         <insert tableName="widget_type">
             <column name="widget_type_id">60</column>
@@ -9053,6 +9148,11 @@
         </insert>
         <insert tableName="widget_type_attribute">
             <column name="attribute_name">style</column>
+            <column name="attribute_type_id">1</column>
+            <column name="widget_type_id">60</column>
+        </insert>
+        <insert tableName="widget_type_attribute">
+            <column name="attribute_name">child</column>
             <column name="attribute_type_id">1</column>
             <column name="widget_type_id">60</column>
         </insert>
@@ -9346,6 +9446,11 @@
             <column name="widget_type_id">62</column>
         </insert>
         <insert tableName="widget_type_attribute">
+            <column name="attribute_name">child</column>
+            <column name="attribute_type_id">1</column>
+            <column name="widget_type_id">62</column>
+        </insert>
+        <insert tableName="widget_type_attribute">
             <column name="attribute_name">value</column>
             <column name="attribute_type_id">1</column>
             <column name="widget_type_id">62</column>
@@ -9489,6 +9594,11 @@
         </insert>
         <insert tableName="widget_type_attribute">
             <column name="attribute_name">style</column>
+            <column name="attribute_type_id">1</column>
+            <column name="widget_type_id">63</column>
+        </insert>
+        <insert tableName="widget_type_attribute">
+            <column name="attribute_name">child</column>
             <column name="attribute_type_id">1</column>
             <column name="widget_type_id">63</column>
         </insert>
@@ -9929,6 +10039,11 @@
             <column name="widget_type_id">66</column>
         </insert>
         <insert tableName="widget_type_attribute">
+            <column name="attribute_name">child</column>
+            <column name="attribute_type_id">1</column>
+            <column name="widget_type_id">66</column>
+        </insert>
+        <insert tableName="widget_type_attribute">
             <column name="attribute_name">command</column>
             <column name="attribute_type_id">1</column>
             <column name="widget_type_id">66</column>
@@ -10289,6 +10404,11 @@
         </insert>
         <insert tableName="widget_type_attribute">
             <column name="attribute_name">style</column>
+            <column name="attribute_type_id">1</column>
+            <column name="widget_type_id">68</column>
+        </insert>
+        <insert tableName="widget_type_attribute">
+            <column name="attribute_name">child</column>
             <column name="attribute_type_id">1</column>
             <column name="widget_type_id">68</column>
         </insert>
@@ -10875,6 +10995,11 @@
             <column name="attribute_type_id">1</column>
             <column name="widget_type_id">72</column>
         </insert>
+        <insert tableName="widget_type_attribute">
+            <column name="attribute_name">child</column>
+            <column name="attribute_type_id">1</column>
+            <column name="widget_type_id">72</column>
+        </insert>
         <!-- Insert option HTML Element -->
         <insert tableName="widget_type">
             <column name="widget_type_id">73</column>
@@ -11321,6 +11446,11 @@
             <column name="attribute_type_id">1</column>
             <column name="widget_type_id">75</column>
         </insert>
+        <insert tableName="widget_type_attribute">
+            <column name="attribute_name">child</column>
+            <column name="attribute_type_id">1</column>
+            <column name="widget_type_id">75</column>
+        </insert>
         <!-- Insert article HTML Element -->
         <insert tableName="widget_type">
             <column name="widget_type_id">76</column>
@@ -11463,6 +11593,11 @@
             <column name="attribute_type_id">1</column>
             <column name="widget_type_id">76</column>
         </insert>
+        <insert tableName="widget_type_attribute">
+            <column name="attribute_name">child</column>
+            <column name="attribute_type_id">1</column>
+            <column name="widget_type_id">76</column>
+        </insert>
         <!-- Insert body HTML Element -->
         <insert tableName="widget_type">
             <column name="widget_type_id">77</column>
@@ -11602,6 +11737,11 @@
         </insert>
         <insert tableName="widget_type_attribute">
             <column name="attribute_name">style</column>
+            <column name="attribute_type_id">1</column>
+            <column name="widget_type_id">77</column>
+        </insert>
+        <insert tableName="widget_type_attribute">
+            <column name="attribute_name">child</column>
             <column name="attribute_type_id">1</column>
             <column name="widget_type_id">77</column>
         </insert>
@@ -12727,6 +12867,11 @@
             <column name="attribute_type_id">1</column>
             <column name="widget_type_id">83</column>
         </insert>
+        <insert tableName="widget_type_attribute">
+            <column name="attribute_name">child</column>
+            <column name="attribute_type_id">1</column>
+            <column name="widget_type_id">83</column>
+        </insert>
         <!-- Insert ins HTML Element -->
         <insert tableName="widget_type">
             <column name="widget_type_id">84</column>
@@ -13018,6 +13163,11 @@
         </insert>
         <insert tableName="widget_type_attribute">
             <column name="attribute_name">style</column>
+            <column name="attribute_type_id">1</column>
+            <column name="widget_type_id">85</column>
+        </insert>
+        <insert tableName="widget_type_attribute">
+            <column name="attribute_name">child</column>
             <column name="attribute_type_id">1</column>
             <column name="widget_type_id">85</column>
         </insert>
@@ -13954,6 +14104,11 @@
             <column name="widget_type_id">91</column>
         </insert>
         <insert tableName="widget_type_attribute">
+            <column name="attribute_name">child</column>
+            <column name="attribute_type_id">1</column>
+            <column name="widget_type_id">91</column>
+        </insert>
+        <insert tableName="widget_type_attribute">
             <column name="attribute_name">xmlns</column>
             <column name="attribute_type_id">1</column>
             <column name="widget_type_id">91</column>
@@ -14385,6 +14540,11 @@
             <column name="widget_type_id">94</column>
         </insert>
         <insert tableName="widget_type_attribute">
+            <column name="attribute_name">child</column>
+            <column name="attribute_type_id">1</column>
+            <column name="widget_type_id">94</column>
+        </insert>
+        <insert tableName="widget_type_attribute">
             <column name="attribute_name">as</column>
             <column name="attribute_type_id">1</column>
             <column name="widget_type_id">94</column>
@@ -14601,6 +14761,11 @@
             <column name="attribute_type_id">1</column>
             <column name="widget_type_id">95</column>
         </insert>
+        <insert tableName="widget_type_attribute">
+            <column name="attribute_name">child</column>
+            <column name="attribute_type_id">1</column>
+            <column name="widget_type_id">95</column>
+        </insert>
         <!-- Insert label HTML Element -->
         <insert tableName="widget_type">
             <column name="widget_type_id">96</column>
@@ -14740,6 +14905,11 @@
         </insert>
         <insert tableName="widget_type_attribute">
             <column name="attribute_name">style</column>
+            <column name="attribute_type_id">1</column>
+            <column name="widget_type_id">96</column>
+        </insert>
+        <insert tableName="widget_type_attribute">
+            <column name="attribute_name">child</column>
             <column name="attribute_type_id">1</column>
             <column name="widget_type_id">96</column>
         </insert>
@@ -15032,6 +15202,11 @@
             <column name="attribute_type_id">1</column>
             <column name="widget_type_id">98</column>
         </insert>
+        <insert tableName="widget_type_attribute">
+            <column name="attribute_name">child</column>
+            <column name="attribute_type_id">1</column>
+            <column name="widget_type_id">98</column>
+        </insert>
         <!-- Insert th HTML Element -->
         <insert tableName="widget_type">
             <column name="widget_type_id">99</column>
@@ -15171,6 +15346,11 @@
         </insert>
         <insert tableName="widget_type_attribute">
             <column name="attribute_name">style</column>
+            <column name="attribute_type_id">1</column>
+            <column name="widget_type_id">99</column>
+        </insert>
+        <insert tableName="widget_type_attribute">
+            <column name="attribute_name">child</column>
             <column name="attribute_type_id">1</column>
             <column name="widget_type_id">99</column>
         </insert>
@@ -15338,6 +15518,11 @@
         </insert>
         <insert tableName="widget_type_attribute">
             <column name="attribute_name">style</column>
+            <column name="attribute_type_id">1</column>
+            <column name="widget_type_id">100</column>
+        </insert>
+        <insert tableName="widget_type_attribute">
+            <column name="attribute_name">child</column>
             <column name="attribute_type_id">1</column>
             <column name="widget_type_id">100</column>
         </insert>
@@ -15525,6 +15710,11 @@
         </insert>
         <insert tableName="widget_type_attribute">
             <column name="attribute_name">style</column>
+            <column name="attribute_type_id">1</column>
+            <column name="widget_type_id">101</column>
+        </insert>
+        <insert tableName="widget_type_attribute">
+            <column name="attribute_name">child</column>
             <column name="attribute_type_id">1</column>
             <column name="widget_type_id">101</column>
         </insert>
@@ -16386,6 +16576,11 @@
             <column name="widget_type_id">107</column>
         </insert>
         <insert tableName="widget_type_attribute">
+            <column name="attribute_name">child</column>
+            <column name="attribute_type_id">1</column>
+            <column name="widget_type_id">107</column>
+        </insert>
+        <insert tableName="widget_type_attribute">
             <column name="attribute_name">colspan</column>
             <column name="attribute_type_id">1</column>
             <column name="widget_type_id">107</column>
@@ -16539,6 +16734,11 @@
         </insert>
         <insert tableName="widget_type_attribute">
             <column name="attribute_name">style</column>
+            <column name="attribute_type_id">1</column>
+            <column name="widget_type_id">108</column>
+        </insert>
+        <insert tableName="widget_type_attribute">
+            <column name="attribute_name">child</column>
             <column name="attribute_type_id">1</column>
             <column name="widget_type_id">108</column>
         </insert>
@@ -16704,6 +16904,11 @@
             <column name="attribute_type_id">1</column>
             <column name="widget_type_id">109</column>
         </insert>
+        <insert tableName="widget_type_attribute">
+            <column name="attribute_name">child</column>
+            <column name="attribute_type_id">1</column>
+            <column name="widget_type_id">109</column>
+        </insert>
         <!-- Insert h4 HTML Element -->
         <insert tableName="widget_type">
             <column name="widget_type_id">110</column>
@@ -16843,6 +17048,11 @@
         </insert>
         <insert tableName="widget_type_attribute">
             <column name="attribute_name">style</column>
+            <column name="attribute_type_id">1</column>
+            <column name="widget_type_id">110</column>
+        </insert>
+        <insert tableName="widget_type_attribute">
+            <column name="attribute_name">child</column>
             <column name="attribute_type_id">1</column>
             <column name="widget_type_id">110</column>
         </insert>
@@ -17169,6 +17379,30 @@
             <column name="attribute_name">style</column>
             <column name="attribute_type_id">1</column>
             <column name="widget_type_id">112</column>
+        </insert>
+        <!-- Insert comment HTML Element -->
+        <insert tableName="widget_type">
+            <column name="widget_type_id">113</column>
+            <column name="name">comment</column>
+            <column name="platform_code">HTML5</column>
+        </insert>
+        <!-- Insert comment Attributes -->
+        <insert tableName="widget_type_attribute">
+            <column name="attribute_name">child</column>
+            <column name="attribute_type_id">1</column>
+            <column name="widget_type_id">113</column>
+        </insert>
+        <!-- Insert text HTML Element -->
+        <insert tableName="widget_type">
+            <column name="widget_type_id">114</column>
+            <column name="name">text</column>
+            <column name="platform_code">HTML5</column>
+        </insert>
+        <!-- Insert text Attributes -->
+        <insert tableName="widget_type_attribute">
+            <column name="attribute_name">child</column>
+            <column name="attribute_type_id">1</column>
+            <column name="widget_type_id">114</column>
         </insert>
     </changeSet>
 </databaseChangeLog>
