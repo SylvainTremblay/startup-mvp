@@ -43,18 +43,26 @@ public class FlutterGeneratorService extends GeneratorService {
                 log.info(line);
             }
             exitCode = process.waitFor();
+            if (exitCode != 0) {
+                BufferedReader errorReader = new BufferedReader(new InputStreamReader(process.getErrorStream()));
+                String errorline;
+                while ((errorline = errorReader.readLine()) != null) {
+                    log.severe(errorline);
+                }
+
+            }
         } catch (IOException|InterruptedException e) {
             log.log(Level.SEVERE, "Error generating Flutter app skeleton: " + e.getMessage(), e);
+        }
+        if (exitCode != 0) {
+            String errorMessage = "Error generating Flutter app skeleton. Exit code: " + exitCode;
+            throw new GenerationServiceException(errorMessage);
         }
         // Now generate the main.dart file
         generateMainDartFile(applicationDto, applicationFolder);
         // Now generate the views
         generateViews(applicationDto, applicationFolder);
         log.exiting(this.getClass().getSimpleName(),"generateApplicationCode");
-        if (exitCode != 0) {
-            String errorMessage = "Error generating Flutter app skeleton. Exit code: " + exitCode;
-            throw new GenerationServiceException(errorMessage);
-        }
     }
 
     /**

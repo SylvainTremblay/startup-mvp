@@ -3,7 +3,7 @@
     <#-- Special handling for comment widget -->
     <!--     ${widgetDto.getAttributes()["comment"]?default("")} -->
 <#elseif widgetDto.getWidgetType().getName() == "text">
-    <#-- Special handling for text widget -->
+    <#-- Special handling for text widget -->d
     ${widgetDto.getAttributes()["text"]?default("")}
 <#else>
     <${widgetDto.getWidgetType().getName()}<#list widgetDto.getAttributes() as attributeKey, attributeValue><#if attributeKey != "child"> ${attributeKey}="${attributeValue}"</#if></#list>>

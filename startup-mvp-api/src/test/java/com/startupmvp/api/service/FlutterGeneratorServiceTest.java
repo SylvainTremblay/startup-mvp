@@ -27,7 +27,7 @@ class FlutterGeneratorServiceTest {
         // Given
         ApplicationDto applicationDto = new ApplicationDto();
         applicationDto.setOrganizationDto(new OrganizationDto());
-        applicationDto.getOrganizationDto().setOrganizationName("com.csofdv");
+        applicationDto.getOrganizationDto().setOrganizationName("com.svmp");
         applicationDto.setApplicationName("test_app");
         applicationDto.setApplicationId(UUID.randomUUID().toString());
 

@@ -12,6 +12,8 @@ import lombok.Getter;
 import lombok.Setter;
 import lombok.ToString;
 
+import java.util.UUID;
+
 @Entity
 @Table(name = "ORGANIZATION")
 @Getter
@@ -20,9 +22,8 @@ import lombok.ToString;
 public class Organization {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "ORGANIZATION_ID", nullable = false)
-    private Long organizationId;
+    @Column(name = "ORGANIZATION_ID", nullable = false, updatable = false)
+    private UUID organizationId;
 
     @Column(name = "NAME", nullable = false, length = 100)
     private String name;

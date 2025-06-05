@@ -66,7 +66,7 @@ class HtmlGeneratorServiceTest {
         // Given
         ApplicationDto applicationDto = new ApplicationDto();
         applicationDto.setOrganizationDto(new OrganizationDto());
-        applicationDto.getOrganizationDto().setOrganizationName("com.csofdv");
+        applicationDto.getOrganizationDto().setOrganizationName("com.smvp");
         applicationDto.setApplicationName("test_app");
         applicationDto.setApplicationId(UUID.randomUUID().toString());
 

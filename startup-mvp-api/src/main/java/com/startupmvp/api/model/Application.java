@@ -10,6 +10,8 @@ import lombok.Getter;
 import lombok.Setter;
 import lombok.ToString;
 
+import java.util.UUID;
+
 @Entity
 @Table(name = "APPLICATION")
 @Getter
@@ -18,9 +20,8 @@ import lombok.ToString;
 public class Application {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "APPLICATION_ID", nullable = false)
-    private Long applicationId;
+    private UUID applicationId;
 
     @Column(name = "NAME", nullable = false, length = 100)
     private String name;

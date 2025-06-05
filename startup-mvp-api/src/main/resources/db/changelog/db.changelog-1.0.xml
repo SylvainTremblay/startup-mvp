@@ -134,8 +134,8 @@
       </column>
     </createTable>
 
-    <createTable tableName="user">
-      <column name="user_id" type="UUID">
+    <createTable tableName="organization_user">
+      <column name="user_id" type="BIGINT">
         <constraints nullable="false" primaryKey="true" primaryKeyName="pk_user"/>
       </column>
       <column name="first_name" type="VARCHAR(30)">
@@ -152,9 +152,10 @@
         <constraints nullable="false" referencedTableName="organization" referencedColumnNames="organization_id" foreignKeyName="fk_user_organization"/>
       </column>
     </createTable>
+    <addAutoIncrement tableName="organization_user" columnName="user_id" columnDataType="BIGINT" startWith="1" incrementBy="1"/>
 
     <createTable tableName="application">
-      <column name="application_id" type="BIGINT">
+      <column name="application_id" type="UUID">
         <constraints nullable="false" primaryKey="true" primaryKeyName="pk_application"/>
       </column>
       <column name="application_name" type="VARCHAR(30)">
@@ -168,7 +169,6 @@
         <constraints nullable="false" referencedTableName="platform" referencedColumnNames="platform_code" foreignKeyName="fk_application_platform"/>
       </column>
     </createTable>
-    <addAutoIncrement tableName="application" columnName="application_id" columnDataType="BIGINT" startWith="1" incrementBy="1"/>
 
     <createTable tableName="widget">
       <column name="widget_id" type="BIGINT">
@@ -238,7 +238,7 @@
       <column name="view_model_id" type="BIGINT">
         <constraints nullable="true" referencedTableName="view_model" referencedColumnNames="view_model_id" foreignKeyName="fk_view_model_view_model_id"/>
       </column>
-      <column name="attribute_name" type="VARCHAR(20)">
+      <column name="attribute_name" type="VARCHAR(50)">
         <constraints nullable="false"/>
       </column>
       <column name="attribute_type_id" type="BIGINT">
