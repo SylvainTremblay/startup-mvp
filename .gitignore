@@ -1,9 +1,8 @@
 # Compiled class file
 *.class
-**/startup-mvp-api/build/**
-**/startup-mvp-api/.gradle/**
-**/startup-mvp-api/.idea/**
-
+**/build/**
+**/.gradle/**
+**/.idea/**
 # Log file
 *.log
 
