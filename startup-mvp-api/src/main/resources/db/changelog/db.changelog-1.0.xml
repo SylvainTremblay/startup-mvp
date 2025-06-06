@@ -124,13 +124,13 @@
         <constraints nullable="false"/>
       </column>
       <column name="organization_address_id" type="BIGINT">
-        <constraints nullable="false" referencedTableName="organization_address" referencedColumnNames="organization_address_id" foreignKeyName="fk_organization_address"/>
+        <constraints nullable="true" referencedTableName="organization_address" referencedColumnNames="organization_address_id" foreignKeyName="fk_organization_address"/>
       </column>
       <column name="billing_address_id" type="BIGINT">
-        <constraints nullable="false" referencedTableName="organization_address" referencedColumnNames="organization_address_id" foreignKeyName="fk_billing_address"/>
+        <constraints nullable="true" referencedTableName="organization_address" referencedColumnNames="organization_address_id" foreignKeyName="fk_billing_address"/>
       </column>
       <column name="website" type="VARCHAR(255)">
-        <constraints nullable="false" unique="true"/>
+        <constraints nullable="true" unique="true"/>
       </column>
     </createTable>
 

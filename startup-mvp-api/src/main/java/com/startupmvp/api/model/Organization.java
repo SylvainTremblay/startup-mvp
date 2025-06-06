@@ -24,12 +24,19 @@ public class Organization {
     @Column(name = "ORGANIZATION_ID", nullable = false, updatable = false)
     private UUID organizationId;
 
-    @Column(name = "NAME", nullable = false, length = 100)
-    private String name;
+    @Column(name = "ORGANIZATION_NAME", nullable = false, length = 100)
+    private String organizationName;
 
     @OneToOne(cascade = CascadeType.ALL)
-    @JoinColumn(name = "ADDRESS_ID", nullable = false)
-    private OrganizationAddress address;
+    @JoinColumn(name = "ORGANIZATION_ADDRESS_ID", nullable = false)
+    private OrganizationAddress organizationAddress;
+
+    @OneToOne(cascade = CascadeType.ALL)
+    @JoinColumn(name = "BILLING_ADDRESS_ID", nullable = false)
+    private OrganizationAddress billingAddress;
+
+    @Column(name = "WEBSITE", nullable = false, length = 255)
+    private String website;
 
     // Getters and Setters
 }
