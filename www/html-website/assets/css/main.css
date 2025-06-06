@@ -1,0 +1,95 @@
+@import 'bootstrap-reboot.min.css';
+@import 'bootstrap-grid.min.css';
+@import 'bootstrap-utilities.min.css';
+
+* {
+	--white: #ffffff;
+	--font-primary: #2b2e55;
+	--link-hover: #3b8cdb;
+	--accent-color: #6d78d3;
+	--primary-btn-color: #6a717c;
+	--border-color: #3e4169;
+	--background-color: #f0f1ff;
+	--footer-bg: var(--font-primary);
+
+	--bs-heading-color: var(--font-primary);
+	--bs-body-color: var(--font-primary);
+}
+
+section {
+	padding-top: 5rem;
+	padding-bottom: 5rem;
+	background: linear-gradient(var(--white), var(--background-color));
+}
+section:first-of-type {
+	background: var(--background-color);
+}
+
+a {
+	color: inherit;
+	text-decoration: none;
+}
+a:hover {
+	color: var(--link-hover);
+}
+
+h1,
+h2,
+h3,
+h4,
+h5 {
+	font-weight: bold;
+}
+
+h4 {
+	font-size: 1.2rem;
+}
+
+footer {
+	--bs-border-color: var(--border-color);
+	background-color: var(--footer-bg);
+	color: var(--white);
+}
+
+footer h4 {
+	color: var(--white);
+}
+
+.btn {
+	border: none;
+	border-radius: 5px;
+	padding: 0.75rem 1.5rem;
+}
+
+.btn-primary {
+	color: var(--white);
+	background-color: var(--primary-btn-color);
+}
+
+.btn-accent {
+	color: var(--white);
+	background-color: var(--accent-color);
+}
+
+.btn-round {
+	border-radius: 25px;
+	padding-top: 0.5rem;
+	padding-bottom: 0.5rem;
+}
+
+.icon {
+	color: var(--accent-color);
+	width: 2.25em;
+	height: 2.25em;
+}
+
+.social-icons .icon {
+	width: 1.2em;
+	height: 1.2em;
+	margin-right: 1rem;
+	color: inherit;
+}
+
+.main-nav ul li {
+	list-style: none;
+}
