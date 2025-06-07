@@ -147,9 +147,12 @@
       <column name="email" type="VARCHAR(100)">
         <constraints nullable="false" unique="true"/>
       </column>
-      <column name="phone_number" type="VARCHAR(20)"/>
+      <column name="phone_number" type="VARCHAR(15)"/>
       <column name="organization_id" type="UUID">
         <constraints nullable="false" referencedTableName="organization" referencedColumnNames="organization_id" foreignKeyName="fk_user_organization"/>
+      </column>
+      <column name="password_hash" type="VARCHAR(255)">
+        <constraints nullable="true"/>
       </column>
     </createTable>
     <addAutoIncrement tableName="organization_user" columnName="user_id" columnDataType="BIGINT" startWith="1" incrementBy="1"/>

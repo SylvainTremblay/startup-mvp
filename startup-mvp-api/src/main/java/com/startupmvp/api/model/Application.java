@@ -6,6 +6,9 @@ import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Column;
 import jakarta.persistence.Table;
+import jakarta.persistence.ManyToOne;
+import jakarta.persistence.FetchType;
+import jakarta.persistence.JoinColumn;
 import lombok.Getter;
 import lombok.Setter;
 import lombok.ToString;
@@ -23,11 +26,18 @@ public class Application {
     @Column(name = "APPLICATION_ID", nullable = false)
     private UUID applicationId;
 
-    @Column(name = "NAME", nullable = false, length = 100)
-    private String name;
+    @Column(name = "APPLICATION_NAME", nullable = false, length = 100)
+    private String applicationName;
 
     @Column(name = "DESCRIPTION", length = 255)
     private String description;
 
-    // Getters and Setters
+    @Column(name = "PLATFORM_CODE", nullable = false, length = 8)
+    private String platformCode;
+
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "ORGANIZATION_ID", nullable = false)
+    private Organization organization;
+
 }
+

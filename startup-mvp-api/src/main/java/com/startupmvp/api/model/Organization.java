@@ -28,14 +28,14 @@ public class Organization {
     private String organizationName;
 
     @OneToOne(cascade = CascadeType.ALL)
-    @JoinColumn(name = "ORGANIZATION_ADDRESS_ID", nullable = false)
+    @JoinColumn(name = "ORGANIZATION_ADDRESS_ID")
     private OrganizationAddress organizationAddress;
 
     @OneToOne(cascade = CascadeType.ALL)
-    @JoinColumn(name = "BILLING_ADDRESS_ID", nullable = false)
+    @JoinColumn(name = "BILLING_ADDRESS_ID")
     private OrganizationAddress billingAddress;
 
-    @Column(name = "WEBSITE", nullable = false, length = 255)
+    @Column(name = "WEBSITE", length = 255)
     private String website;
 
     // Getters and Setters
