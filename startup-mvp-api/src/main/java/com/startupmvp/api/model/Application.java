@@ -26,7 +26,7 @@ public class Application {
     @Column(name = "APPLICATION_ID", nullable = false)
     private UUID applicationId;
 
-    @Column(name = "APPLICATION_NAME", nullable = false, length = 100)
+    @Column(name = "APPLICATION_NAME", nullable = false, length = 30)
     private String applicationName;
 
     @Column(name = "DESCRIPTION", length = 255)

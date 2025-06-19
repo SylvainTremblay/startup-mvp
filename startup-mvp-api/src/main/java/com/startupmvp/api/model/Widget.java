@@ -1,11 +1,13 @@
 package com.startupmvp.api.model;
 
 import jakarta.persistence.*;
+import jakarta.persistence.OneToMany;
 import lombok.Getter;
 import lombok.Setter;
 import lombok.ToString;
 
 import java.time.LocalDateTime;
+import java.util.List;
 
 @Entity
 @Table(name = "WIDGET")
@@ -29,5 +31,8 @@ public class Widget {
     @Column(name = "TIMESTAMP", nullable = false)
     private LocalDateTime timestamp;
 
-    // Getters and Setters
+    @OneToMany(mappedBy = "widget", cascade = jakarta.persistence.CascadeType.ALL, fetch = FetchType.EAGER)
+    private List<WidgetAttributeValue> attributeValues;
+
 }
+

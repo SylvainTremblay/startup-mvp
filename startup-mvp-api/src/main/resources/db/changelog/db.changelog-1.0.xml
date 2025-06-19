@@ -183,7 +183,7 @@
       <column name="constant" type="BOOLEAN">
         <constraints nullable="false"/>
       </column>
-      <column name="timestamp" type="TIMESTAMP">
+      <column name="timestamp" type="TIMESTAMP" defaultValue="now()">
         <constraints nullable="false"/>
       </column>
     </createTable>
@@ -220,6 +220,9 @@
       </column>
       <column name="main_widget_id" type="BIGINT">
         <constraints nullable="true" referencedTableName="widget" referencedColumnNames="widget_id" foreignKeyName="fk_view_main_widget"/>
+      </column>
+      <column name="application_id" type="UUID">
+        <constraints nullable="false" referencedTableName="application" referencedColumnNames="application_id" foreignKeyName="fk_view_application"/>
       </column>
     </createTable>
     <addAutoIncrement tableName="view" columnName="view_id" columnDataType="BIGINT" startWith="1" incrementBy="1"/>

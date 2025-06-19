@@ -30,5 +30,8 @@ public class View {
     @JoinColumn(name = "MAIN_WIDGET_ID")
     private Widget mainWidget;
 
+    @ManyToOne
+    @JoinColumn(name = "APPLICATION_ID", nullable = false)
+    private Application application;
     // Getters and Setters
 }
