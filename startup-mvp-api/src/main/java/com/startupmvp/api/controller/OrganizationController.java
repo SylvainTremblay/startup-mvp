@@ -1,5 +1,7 @@
 package com.startupmvp.api.controller;
 
+import com.startupmvp.api.dto.OrganizationDto;
+import com.startupmvp.api.mapper.OrganizationMapper;
 import com.startupmvp.api.model.Organization;
 import com.startupmvp.api.service.OrganizationService;
 import io.swagger.v3.oas.annotations.tags.Tag;
@@ -10,6 +12,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 import java.util.Optional;
 import java.util.UUID;
+import java.util.stream.Collectors;
 
 @Tag(name = "Organization", description = "Operations related to organizations")
 @RestController
@@ -20,28 +23,37 @@ public class OrganizationController {
     private OrganizationService organizationService;
 
     @GetMapping
-    public List<Organization> getAllOrganizations() {
-        return organizationService.findAll();
+    public List<OrganizationDto> getAllOrganizations() {
+        return organizationService.findAll().stream()
+                .map(OrganizationMapper::toDto)
+                .collect(Collectors.toList());
     }
 
     @GetMapping("/{id}")
-    public ResponseEntity<Organization> getOrganizationById(@PathVariable UUID id) {
+    public ResponseEntity<OrganizationDto> getOrganizationById(@PathVariable UUID id) {
         Optional<Organization> organization = organizationService.findById(id);
-        return organization.map(ResponseEntity::ok)
+        return organization.map(org -> ResponseEntity.ok(OrganizationMapper.toDto(org)))
                 .orElseGet(() -> ResponseEntity.notFound().build());
     }
 
     @PostMapping
-    public Organization createOrganization(@RequestBody Organization organization) {
-        return organizationService.save(organization);
+    public OrganizationDto createOrganization(@RequestBody OrganizationDto organizationDto) {
+        // First Generate UUID
+        organizationDto.setOrganizationId(UUID.randomUUID().toString());
+        Organization organization = OrganizationMapper.toEntity(organizationDto);
+        Organization savedOrganization = organizationService.save(organization);
+        return OrganizationMapper.toDto(savedOrganization);
     }
 
     @PutMapping
-    public ResponseEntity<Organization> updateOrganization(@RequestBody Organization organization) {
-        if (organizationService.findById(organization.getOrganizationId()).isEmpty()) {
+    public ResponseEntity<OrganizationDto> updateOrganization(@RequestBody OrganizationDto organizationDto) {
+        Organization organization = OrganizationMapper.toEntity(organizationDto);
+        if (organization.getOrganizationId() == null || 
+            organizationService.findById(organization.getOrganizationId()).isEmpty()) {
             return ResponseEntity.notFound().build();
         }
-        return ResponseEntity.ok(organizationService.save(organization));
+        Organization updatedOrganization = organizationService.save(organization);
+        return ResponseEntity.ok(OrganizationMapper.toDto(updatedOrganization));
     }
 
     @DeleteMapping("/{id}")

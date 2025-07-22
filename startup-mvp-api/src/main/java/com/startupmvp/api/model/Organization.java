@@ -1,5 +1,6 @@
 package com.startupmvp.api.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import jakarta.persistence.Entity;
 import jakarta.persistence.Id;
 import jakarta.persistence.Column;
@@ -13,6 +14,7 @@ import lombok.ToString;
 
 import java.util.UUID;
 
+@JsonIgnoreProperties({"hibernateLazyInitializer", "handler"})
 @Entity
 @Table(name = "ORGANIZATION")
 @Getter
