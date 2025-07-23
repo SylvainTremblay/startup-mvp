@@ -1,5 +1,7 @@
 package com.startupmvp.api.controller;
 
+import com.startupmvp.api.dto.ViewDto;
+import com.startupmvp.api.mapper.ViewMapper;
 import com.startupmvp.api.model.View;
 import com.startupmvp.api.service.ViewService;
 import io.swagger.v3.oas.annotations.tags.Tag;
@@ -9,6 +11,7 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 import java.util.Optional;
+import java.util.stream.Collectors;
 
 @Tag(name = "View", description = "Operations related to views")
 @RestController
@@ -19,28 +22,37 @@ public class ViewController {
     private ViewService viewService;
 
     @GetMapping
-    public List<View> getAllViews() {
-        return viewService.findAll();
+    public List<ViewDto> getAllViews() {
+        return viewService.findAll().stream()
+                .map(ViewMapper::toDto)
+                .collect(Collectors.toList());
     }
 
     @GetMapping("/{id}")
-    public ResponseEntity<View> getViewById(@PathVariable Long id) {
+    public ResponseEntity<ViewDto> getViewById(@PathVariable Long id) {
         Optional<View> view = viewService.findById(id);
-        return view.map(ResponseEntity::ok)
+        return view.map(v -> ResponseEntity.ok(ViewMapper.toDto(v)))
                 .orElseGet(() -> ResponseEntity.notFound().build());
     }
 
     @PostMapping
-    public View createView(@RequestBody View view) {
-        return viewService.save(view);
+    public ViewDto createView(@RequestBody ViewDto viewDto) {
+        View view = ViewMapper.toEntity(viewDto);
+        View savedView = viewService.save(view);
+        return ViewMapper.toDto(savedView);
     }
 
-    @PutMapping("/")
-    public ResponseEntity<View> updateView(@RequestBody View view) {
-        if (viewService.findById(view.getViewId()).isEmpty()) {
+    @PutMapping("/{id}")
+    public ResponseEntity<ViewDto> updateView(@PathVariable Long id, @RequestBody ViewDto viewDto) {
+        Optional<View> existingViewOpt = viewService.findById(id);
+        if (existingViewOpt.isEmpty()) {
             return ResponseEntity.notFound().build();
         }
-        return ResponseEntity.ok(viewService.save(view));
+        
+        View existingView = existingViewOpt.get();
+        ViewMapper.updateEntity(existingView, viewDto);
+        View updatedView = viewService.save(existingView);
+        return ResponseEntity.ok(ViewMapper.toDto(updatedView));
     }
 
     @DeleteMapping("/{id}")

@@ -1,5 +1,7 @@
 package com.startupmvp.api.controller;
 
+import com.startupmvp.api.dto.UserDto;
+import com.startupmvp.api.mapper.UserMapper;
 import com.startupmvp.api.model.User;
 import com.startupmvp.api.service.UserService;
 import io.swagger.v3.oas.annotations.tags.Tag;
@@ -9,6 +11,7 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 import java.util.Optional;
+import java.util.stream.Collectors;
 
 @Tag(name = "User", description = "Operations related to users")
 @RestController
@@ -19,28 +22,48 @@ public class UserController {
     private UserService userService;
 
     @GetMapping
-    public List<User> getAllUsers() {
-        return userService.findAll();
+    public List<UserDto> getAllUsers() {
+        return userService.findAll().stream()
+                .map(UserMapper::toDto)
+                .collect(Collectors.toList());
     }
 
     @GetMapping("/{id}")
-    public ResponseEntity<User> getUserById(@PathVariable Long id) {
+    public ResponseEntity<UserDto> getUserById(@PathVariable Long id) {
         Optional<User> user = userService.findById(id);
-        return user.map(ResponseEntity::ok)
+        return user.map(u -> ResponseEntity.ok(UserMapper.toDto(u)))
                 .orElseGet(() -> ResponseEntity.notFound().build());
     }
 
     @PostMapping
-    public User createUser(@RequestBody User user) {
-        return userService.save(user);
+    public UserDto createUser(@RequestBody UserDto userDto) {
+        User user = UserMapper.toEntity(userDto);
+        User savedUser = userService.save(user);
+        return UserMapper.toDto(savedUser);
     }
 
     @PutMapping
-    public ResponseEntity<User> updateUser(@RequestBody User user) {
-        if (userService.findById(user.getUserId()).isEmpty()) {
-            return ResponseEntity.notFound().build();
+    public ResponseEntity<UserDto> updateUser(@RequestBody UserDto userDto) {
+        if (userDto.getUserId() == null || userDto.getUserId().isEmpty()) {
+            return ResponseEntity.badRequest().build();
         }
-        return ResponseEntity.ok(userService.save(user));
+        
+        try {
+            Long userId = Long.parseLong(userDto.getUserId());
+            Optional<User> existingUserOpt = userService.findById(userId);
+            
+            if (existingUserOpt.isEmpty()) {
+                return ResponseEntity.notFound().build();
+            }
+            
+            User existingUser = existingUserOpt.get();
+            User updatedUser = UserMapper.updateEntity(existingUser, userDto);
+            User savedUser = userService.save(updatedUser);
+            
+            return ResponseEntity.ok(UserMapper.toDto(savedUser));
+        } catch (NumberFormatException e) {
+            return ResponseEntity.badRequest().build();
+        }
     }
 
     @DeleteMapping("/{id}")
