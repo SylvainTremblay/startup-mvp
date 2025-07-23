@@ -1,12 +1,19 @@
 package com.startupmvp.api.mapper;
 
+import com.startupmvp.api.dto.AttributeTypeDto;
 import com.startupmvp.api.dto.PlatformDto;
+import com.startupmvp.api.dto.WidgetTypeActionDto;
+import com.startupmvp.api.dto.WidgetTypeAttributeDto;
 import com.startupmvp.api.dto.WidgetTypeDto;
+import com.startupmvp.api.model.AttributeType;
 import com.startupmvp.api.model.Platform;
 import com.startupmvp.api.model.WidgetType;
+import com.startupmvp.api.model.WidgetTypeAttribute;
 import org.junit.jupiter.api.Test;
 
 import java.time.LocalDate;
+import java.util.ArrayList;
+import java.util.List;
 
 import static org.junit.jupiter.api.Assertions.*;
 
@@ -109,5 +116,127 @@ class WidgetTypeMapperTest {
         assertNotNull(widgetType);
         assertEquals("Button", widgetType.getName());
         assertNull(widgetType.getPlatform());
+    }
+    
+    @Test
+    void testToDtoWithAttributes() {
+        // Create test data
+        WidgetType widgetType = new WidgetType();
+        widgetType.setWidgetTypeId(1L);
+        widgetType.setName("Button");
+        
+        // Create platform
+        Platform platform = new Platform();
+        platform.setPlatformCode("WEB");
+        platform.setPlatformName("Web Platform");
+        widgetType.setPlatform(platform);
+        
+        // Create attribute type
+        AttributeType attributeType = new AttributeType();
+        attributeType.setAttributeTypeId(1L);
+        attributeType.setName("String");
+        
+        // Create widget type attributes
+        List<WidgetTypeAttribute> attributes = new ArrayList<>();
+        
+        WidgetTypeAttribute attribute1 = new WidgetTypeAttribute();
+        attribute1.setWidgetTypeAttributeId(1L);
+        attribute1.setAttributeName("text");
+        attribute1.setAttributeType(attributeType);
+        attribute1.setRequired(true);
+        attribute1.setAttributeNameRequired(false);
+        attribute1.setWidgetType(widgetType);
+        attributes.add(attribute1);
+        
+        WidgetTypeAttribute attribute2 = new WidgetTypeAttribute();
+        attribute2.setWidgetTypeAttributeId(2L);
+        attribute2.setAttributeName("color");
+        attribute2.setAttributeType(attributeType);
+        attribute2.setRequired(false);
+        attribute2.setAttributeNameRequired(true);
+        attribute2.setWidgetType(widgetType);
+        attributes.add(attribute2);
+        
+        // Convert to DTO with attributes
+        WidgetTypeDto dto = WidgetTypeMapper.toDtoWithAttributes(widgetType, attributes);
+        
+        // Verify conversion
+        assertNotNull(dto);
+        assertEquals(1L, dto.getWidgetTypeId());
+        assertEquals("Button", dto.getName());
+        
+        // Verify attributes
+        assertEquals(2, dto.getAttributeTypes().size());
+        
+        WidgetTypeAttributeDto textAttributeDto = dto.getAttributeTypes().get("text");
+        assertNotNull(textAttributeDto);
+        assertEquals(1L, textAttributeDto.getWidgetTypeAttributeId());
+        assertEquals("text", textAttributeDto.getAttributeName());
+        assertTrue(textAttributeDto.getRequired());
+        assertFalse(textAttributeDto.getAttributeNameRequired());
+        
+        WidgetTypeAttributeDto colorAttributeDto = dto.getAttributeTypes().get("color");
+        assertNotNull(colorAttributeDto);
+        assertEquals(2L, colorAttributeDto.getWidgetTypeAttributeId());
+        assertEquals("color", colorAttributeDto.getAttributeName());
+        assertFalse(colorAttributeDto.getRequired());
+        assertTrue(colorAttributeDto.getAttributeNameRequired());
+        
+        // Verify attribute types
+        assertNotNull(textAttributeDto.getAttributeType());
+        assertEquals(1L, textAttributeDto.getAttributeType().getAttributeTypeId());
+        assertEquals("String", textAttributeDto.getAttributeType().getName());
+        
+        assertNotNull(colorAttributeDto.getAttributeType());
+        assertEquals(1L, colorAttributeDto.getAttributeType().getAttributeTypeId());
+        assertEquals("String", colorAttributeDto.getAttributeType().getName());
+    }
+    
+    @Test
+    void testToAttributeDto() {
+        // Create test data
+        WidgetType widgetType = new WidgetType();
+        widgetType.setWidgetTypeId(1L);
+        widgetType.setName("Button");
+        
+        AttributeType attributeType = new AttributeType();
+        attributeType.setAttributeTypeId(1L);
+        attributeType.setName("String");
+        
+        WidgetTypeAttribute attribute = new WidgetTypeAttribute();
+        attribute.setWidgetTypeAttributeId(1L);
+        attribute.setAttributeName("text");
+        attribute.setAttributeType(attributeType);
+        attribute.setRequired(true);
+        attribute.setAttributeNameRequired(false);
+        attribute.setWidgetType(widgetType);
+        
+        // Convert to DTO
+        WidgetTypeAttributeDto dto = WidgetTypeMapper.toAttributeDto(attribute);
+        
+        // Verify conversion
+        assertNotNull(dto);
+        assertEquals(1L, dto.getWidgetTypeAttributeId());
+        assertEquals("text", dto.getAttributeName());
+        assertTrue(dto.getRequired());
+        assertFalse(dto.getAttributeNameRequired());
+        
+        // Verify attribute type
+        assertNotNull(dto.getAttributeType());
+        assertEquals(1L, dto.getAttributeType().getAttributeTypeId());
+        assertEquals("String", dto.getAttributeType().getName());
+        
+        // Verify no circular reference
+        assertNull(dto.getWidgetType());
+    }
+    
+    @Test
+    void testCreateActionDto() {
+        // Create action DTO
+        WidgetTypeActionDto dto = WidgetTypeMapper.createActionDto("onClick");
+        
+        // Verify creation
+        assertNotNull(dto);
+        assertEquals("onClick", dto.getName());
     }
 }
